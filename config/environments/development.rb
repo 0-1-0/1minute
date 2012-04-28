@@ -34,4 +34,7 @@ Oneminute::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # нафиг SCSS, SASS - наше все!
+  config.sass.preferred_syntax = :sass
 end
