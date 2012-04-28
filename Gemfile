@@ -27,6 +27,12 @@ gem 'jquery-rails'
 gem 'slim-rails'
 gem 'simple_form'
 
+# authentifiacate like a boss!
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+
 # делаем проще разработку
 group :development do
   gem 'looksee'
