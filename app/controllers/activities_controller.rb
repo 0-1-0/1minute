@@ -84,8 +84,42 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def do_if
-    # some work
-    redirect_to :back, notice: 'Thank you!'
+  def do_it
+    @activity = Activity.find(params[:id])
+    @event = Event.find(params[:event])
+
+    case @activity.activity_type
+    when "link"
+      # проверяем на дубликаты
+      unless Transaction.where(user_id: current_user.id, activity_id: @activity.id, event_id: @event.id).first
+        t = Transaction.create(
+          user_id: current_user.id,
+          activity_id: @activity.id,
+          event_id: @event.id,
+          minutes: @activity.minutes,
+          money: @activity.money,
+          status: (@activity.instantly? ? 'done' : 'pending'))
+
+
+        current_user.minutes += @activity.minutes
+        current_user.save
+
+        if @activity.instantly?
+          @event.money += @activity.money
+          @event.minutes += @activity.minutes
+          @event.save!
+        end
+      end
+
+      redirect_to @activity.data
+    end
+  end
+
+  def resolve_pending
+    @activity = Activity.find(params[:id])
+    money = params[:resolve][:money].to_f
+
+    @activity.resolve_pending(money)
+    redirect_to :back, notice: 'Pending transactions resolved'
   end
 end

@@ -49,4 +49,4 @@ p
           td= link_to activity.id, activity_path(activity)
           td= activity.activity_type
           td= activity.description
-          td= link_to 'do it', do_it_activity_path(activity, event: @event)
+          td= link_to 'do it', do_it_activity_path(activity, event: @event), target: '_blank'

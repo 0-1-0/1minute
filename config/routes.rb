@@ -2,6 +2,7 @@ Oneminute::Application.routes.draw do
   resources :activities do
     member do
       get 'do_it'
+      post 'resolve_pending'
     end
   end
 
