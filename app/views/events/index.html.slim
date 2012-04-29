@@ -6,7 +6,7 @@ table class="table table-striped"
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:name)
       th= model_class.human_attribute_name(:description)
-      th= model_class.human_attribute_name(:image_id)
+      th= model_class.human_attribute_name(:image)
       th= model_class.human_attribute_name(:target_minimum)
       th= model_class.human_attribute_name(:current_min)
       th= model_class.human_attribute_name(:current_money)
@@ -16,9 +16,9 @@ table class="table table-striped"
     - @events.each do |event|
       tr
         td= link_to event.id, event_path(event)
-        td= event.name
+        td= link_to event.name, event_path(event)
         td= event.description
-        td= event.image_id
+        td= image_tag event.image_url, width: 400
         td= event.target_minimum
         td= event.current_min
         td= event.current_money

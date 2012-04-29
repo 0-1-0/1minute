@@ -33,6 +33,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 
+# хранение изображений
+gem 'carrierwave'
+
 # делаем проще разработку
 group :development do
   gem 'looksee'

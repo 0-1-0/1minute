@@ -1,7 +1,8 @@
-= simple_form_for @event, :html => { :class => "form-horizontal" } do |f|
+= simple_form_for @event, :html => { :class => "form-horizontal", :multipart => true,  } do |f|
   = f.input :name
   = f.input :description
-  = f.input :image_id
+  = image_tag(@event.image_url) if @event.image?
+  = f.input :image, as: :file
   = f.input :target_minimum
   .form-actions
     = f.button :submit, :class => 'btn-primary'

@@ -10,9 +10,9 @@ p
   br
   = @event.description
 p
-  strong= model_class.human_attribute_name(:image_id) + ':'
+  strong= model_class.human_attribute_name(:image) + ':'
   br
-  = @event.image_id
+  = image_tag @event.image_url
 p
   strong= model_class.human_attribute_name(:target_minimum) + ':'
   br
