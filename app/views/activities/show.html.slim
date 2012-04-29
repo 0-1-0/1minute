@@ -2,9 +2,9 @@
 h1=t '.title', :default => model_class.model_name.human
 
 p
-  strong= model_class.human_attribute_name(:type) + ':'
+  strong= model_class.human_attribute_name(:activity_type) + ':'
   br
-  = @activity.type
+  = @activity.activity_type
 p
   strong= model_class.human_attribute_name(:description) + ':'
   br
@@ -22,9 +22,9 @@ p
   br
   = @activity.money
 p
-  strong= model_class.human_attribute_name(:image_id) + ':'
+  strong= model_class.human_attribute_name(:image) + ':'
   br
-  = @activity.image_id
+  = image_tag @activity.image_url
 p
   strong= model_class.human_attribute_name(:instantly) + ':'
   br

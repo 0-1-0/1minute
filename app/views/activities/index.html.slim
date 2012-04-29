@@ -4,12 +4,12 @@ table class="table table-striped"
   thead
     tr
       th= model_class.human_attribute_name(:id)
-      th= model_class.human_attribute_name(:type)
+      th= model_class.human_attribute_name(:activity_type)
       th= model_class.human_attribute_name(:description)
       th= model_class.human_attribute_name(:data)
       th= model_class.human_attribute_name(:minutes)
       th= model_class.human_attribute_name(:money)
-      th= model_class.human_attribute_name(:image_id)
+      th= model_class.human_attribute_name(:image)
       th= model_class.human_attribute_name(:instantly)
       th= model_class.human_attribute_name(:created_at)
       th=t '.actions', :default => t("helpers.actions")
@@ -17,12 +17,12 @@ table class="table table-striped"
     - @activities.each do |activity|
       tr
         td= link_to activity.id, activity_path(activity)
-        td= activity.type
+        td= activity.activity_type
         td= activity.description
         td= activity.data
         td= activity.minutes
         td= activity.money
-        td= activity.image_id
+        td= image_tag activity.image
         td= activity.instantly
         td=l activity.created_at
         td

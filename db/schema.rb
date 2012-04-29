@@ -11,21 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429141315) do
+ActiveRecord::Schema.define(:version => 20120429165212) do
 
   create_table "activities", :force => true do |t|
-    t.string   "type"
+    t.string   "activity_type"
     t.text     "description"
     t.string   "data"
     t.integer  "minutes"
     t.float    "money"
     t.string   "image"
-    t.boolean  "instantly",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "instantly",     :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
-  add_index "activities", ["type"], :name => "index_actions_on_type"
+  add_index "activities", ["activity_type"], :name => "index_actions_on_type"
 
   create_table "events", :force => true do |t|
     t.string   "name"
