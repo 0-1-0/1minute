@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(:version => 20120429125912) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "transactions", ["action_id"], :name => "index_transactions_on_action_id"
+  add_index "transactions", ["event_id"], :name => "index_transactions_on_event_id"
+  add_index "transactions", ["status"], :name => "index_transactions_on_status"
+  add_index "transactions", ["user_id"], :name => "index_transactions_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "nickname"
