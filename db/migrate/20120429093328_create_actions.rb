@@ -7,9 +7,11 @@ class CreateActions < ActiveRecord::Migration
       t.integer :minutes
       t.float :money
       t.integer :image_id
-      t.boolean :instantly
+      t.boolean :instantly, default: false
 
       t.timestamps
     end
+
+    add_index :actions, :type
   end
 end

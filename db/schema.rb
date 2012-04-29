@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428183133) do
+ActiveRecord::Schema.define(:version => 20120429093328) do
+
+  create_table "actions", :force => true do |t|
+    t.string   "type"
+    t.text     "description"
+    t.string   "data"
+    t.integer  "minutes"
+    t.float    "money"
+    t.integer  "image_id"
+    t.boolean  "instantly",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "actions", ["type"], :name => "index_actions_on_type"
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "image_id"
+    t.integer  "target_minimum"
+    t.integer  "current_min",    :default => 0
+    t.float    "current_money",  :default => 0.0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "events", ["name"], :name => "index_events_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "username"
