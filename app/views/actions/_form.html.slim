@@ -1,5 +1,5 @@
 = simple_form_for @action, :html => { :class => "form-horizontal" } do |f|
-  = f.input :type
+  = f.collection_radio_buttons :type, [['link', 'link'], ['vkontakte', 'vkontakte'], ['facebook', 'facebook']], :first, :last, :item_wrapper_class => 'inline'
   = f.input :description
   = f.input :data
   = f.input :minutes
