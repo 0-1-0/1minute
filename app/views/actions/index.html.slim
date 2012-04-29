@@ -1,0 +1,31 @@
+h1 Listing actions
+
+table
+  tr
+    th Type
+    th Description
+    th Data
+    th Minutes
+    th Money
+    th Image
+    th Instantly
+    th
+    th
+    th
+
+  - @actions.each do |action|
+    tr
+      td = action.type
+      td = action.description
+      td = action.data
+      td = action.minutes
+      td = action.money
+      td = action.image_id
+      td = action.instantly
+      td = link_to 'Show', action
+      td = link_to 'Edit', edit_action_path(action)
+      td = link_to 'Destroy', action, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Action', new_action_path

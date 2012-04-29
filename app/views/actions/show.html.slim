@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Type:
+  = @action.type
+p
+  strong Description:
+  = @action.description
+p
+  strong Data:
+  = @action.data
+p
+  strong Minutes:
+  = @action.minutes
+p
+  strong Money:
+  = @action.money
+p
+  strong Image:
+  = @action.image_id
+p
+  strong Instantly:
+  = @action.instantly
+
+= link_to 'Edit', edit_action_path(@action)
+'|
+= link_to 'Back', actions_path

@@ -1,4 +1,6 @@
 Oneminute::Application.routes.draw do
+  resources :actions
+
   resources :events
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }

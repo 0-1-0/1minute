@@ -1,0 +1,14 @@
+= simple_form_for(@action) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :type
+    = f.input :description
+    = f.input :data
+    = f.input :minutes
+    = f.input :money
+    = f.input :image_id
+    = f.input :instantly
+
+  .form-actions
+    = f.button :submit
