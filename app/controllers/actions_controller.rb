@@ -1,5 +1,6 @@
 class ActionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:do_it]
+  before_filter :authenticate_admin!, except: [:do_it]
 
   # GET /actions
   # GET /actions.json
@@ -81,5 +82,10 @@ class ActionsController < ApplicationController
       format.html { redirect_to actions_url }
       format.json { head :no_content }
     end
+  end
+
+  def do_if
+    # some work
+    redirect_to :back, notice: 'Thank you!'
   end
 end
