@@ -1,5 +1,5 @@
 Oneminute::Application.routes.draw do
-  resources :actions
+  resources :activities
 
   resources :events
 

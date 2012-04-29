@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429125912) do
+ActiveRecord::Schema.define(:version => 20120429141315) do
 
-  create_table "actions", :force => true do |t|
+  create_table "activities", :force => true do |t|
     t.string   "type"
     t.text     "description"
     t.string   "data"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120429125912) do
     t.datetime "updated_at",                     :null => false
   end
 
-  add_index "actions", ["type"], :name => "index_actions_on_type"
+  add_index "activities", ["type"], :name => "index_actions_on_type"
 
   create_table "events", :force => true do |t|
     t.string   "name"
