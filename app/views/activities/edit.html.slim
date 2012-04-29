@@ -1,11 +1,13 @@
 - model_class = @activity.class
 h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
 = render :partial => "form"
-h1 Resolve pending
-b Pending transactions: #{@activity.pending_transactions}
 
-- if @activity.pending_transactions > 0
-  = simple_form_for :resolve, url: resolve_pending_activity_path(@activity), html: {class: 'form-horizontal'} do |f|
-    = f.input :money
-    .form-actions
-      = f.button :submit, class: 'btn btn-primary'
+- unless @activity.instantly?
+  h1 Resolve pending
+  b Pending transactions: #{@activity.pending_transactions}
+
+  - if @activity.pending_transactions > 0
+    = simple_form_for :resolve, url: resolve_pending_activity_path(@activity), html: {class: 'form-horizontal'} do |f|
+      = f.input :money
+      .form-actions
+        = f.button :submit, class: 'btn btn-primary'

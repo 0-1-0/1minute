@@ -105,8 +105,8 @@ class ActivitiesController < ApplicationController
         current_user.save
 
         if @activity.instantly?
-          @event.money += @activity.money
-          @event.minutes += @activity.minutes
+          @event.current_money += @activity.money
+          @event.current_min += @activity.minutes
           @event.save!
         end
       end

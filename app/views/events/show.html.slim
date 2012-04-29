@@ -40,13 +40,13 @@ p
     thead
       tr
         th= model_class.human_attribute_name(:id)
-        th= model_class.human_attribute_name(:activity_type)
+        th= model_class.human_attribute_name(:image)
         th= model_class.human_attribute_name(:description)
         th=t '.actions', :default => t("helpers.actions")
     tbody
       - Activity.all.each do |activity|
         tr
           td= link_to activity.id, activity_path(activity)
-          td= activity.activity_type
+          td= image_tag activity.image_url
           td= activity.description
           td= link_to 'do it', do_it_activity_path(activity, event: @event), target: '_blank'

@@ -21,6 +21,9 @@ class Activity < ActiveRecord::Base
       ev[t.event_id] = {minutes: 0, money: 0.0} unless ev[t.event_id]
       ev[t.event_id][:minutes] += t.minutes
       ev[t.event_id][:money]   += t.money
+
+      t.status = 'done'
+      t.save
     end
 
     rel = money / sum_money

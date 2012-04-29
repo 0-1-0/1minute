@@ -22,8 +22,12 @@ html lang="en"
           = link_to '1minute',  root_path, class: 'brand'
           .container
             - if user_signed_in?
+              - if current_user.is_admin?
+                ul.nav
+                  li= link_to 'Events', events_path
+                  li= link_to 'Activity', activities_path               
               #user_navbar.pull-right style="padding-top: 8px;"
-                span.nickname= current_user.nickname + ' '
+                span.nickname= current_user.nickname + " (#{current_user.minutes}) "
                 = link_to 'Sign out', destroy_user_session_path, method: :delete
 
     .container
@@ -40,7 +44,7 @@ html lang="en"
         = yield
     
       footer
-        p &copy; TwitterExchange 2012
+        p &copy; 1minute 2012
     /!
       Javascripts
       \==================================================
