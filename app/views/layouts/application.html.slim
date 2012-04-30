@@ -27,7 +27,7 @@ html lang="en"
                   li= link_to 'Events', events_path
                   li= link_to 'Activity', activities_path               
               #user_navbar.pull-right style="padding-top: 8px;"
-                span.nickname= current_user.nickname + " (#{current_user.minutes}) "
+                span.nickname= (current_user.nickname || current_user.email) + " (#{current_user.minutes}) "
                 = link_to 'Sign out', destroy_user_session_path, method: :delete
 
     .container
