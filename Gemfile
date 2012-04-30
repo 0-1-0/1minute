@@ -36,6 +36,9 @@ gem 'omniauth-vkontakte'
 # хранение изображений
 gem 'carrierwave'
 
+
+gem 'thin'
+
 # делаем проще разработку
 group :development do
   gem 'looksee'
