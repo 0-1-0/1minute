@@ -62,7 +62,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
 
     respond_to do |format|
-      if @activity.update_attributes(params[:Activity])
+      if @activity.update_attributes(params[:activity])
         format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
         format.json { head :no_content }
       else
