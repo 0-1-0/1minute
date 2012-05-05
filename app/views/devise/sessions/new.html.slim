@@ -19,11 +19,14 @@
       .promo-slider
         .slides_container
           div
-            img[src="images/content/photo-1.png" alt="photo-1" width="519" height="321"]
+            = image_tag 'content/photo-1.png', size: '519x321', alt: 'photo-1'
+            /img[src="/" alt="photo-1" width="519" height="321"]
           div
-            img[src="images/content/photo-2.png" alt="photo-1" width="519" height="321"]
+            = image_tag 'content/photo-2.png', size: '519x321', alt: 'photo-2'
+            /img[src="/content/photo-2.png" alt="photo-1" width="519" height="321"]
           div
-            img[src="images/content/photo-3.png" alt="photo-1" width="519" height="321"]
+            = image_tag 'content/photo-3.png', size: '519x321', alt: 'photo-3'
+            /img[src="/content/photo-3.png" alt="photo-1" width="519" height="321"]
       .promo-caption
         .h3
           | Теперь помогать может каждый. Начните прямо сейчас!
@@ -42,7 +45,8 @@
               br
               | существующего аккаунта или зарегистрироваться
           .login-social
-            img[src="images/login-social.png" alt="login-social" width="306" height="33"]
+            = image_tag 'login-social.png', size: '306x33', alt: 'login-social'
+            /img[src="/login-social.png" alt="login-social" width="306" height="33"]
           .login-form
             form[action="" method="post"]
               .line

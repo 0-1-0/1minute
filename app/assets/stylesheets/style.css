@@ -42,11 +42,11 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			.header .user-block-border {border-left: 1px solid #dfdfdf; overflow: hidden; zoom: 1}
 			.header .user-block {padding: 15px 0 15px 26px; border-left: 1px solid #fff; overflow: hidden; zoom: 1}
 				.header .user-block .user-name{color: #a28c70; margin-right: 5px;}
-					.header .user-block .user-progress{width: 81px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; background:#bababa url(../images/user-progress-bg.png) repeat-x 0 0; height: 5px; border: 1px solid #c5c5c5; display: inline-block ; *display: inline; zoom: 1; position: relative; top: 1px; padding: 1px 2px}
-						.header .user-block .user-progress i{background: #03e846 url(../images/user-progress-in.png) repeat-x 0 0; height: 5px; display: block; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px}
+					.header .user-block .user-progress{width: 81px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; background:#bababa url(user-progress-bg.png) repeat-x 0 0; height: 5px; border: 1px solid #c5c5c5; display: inline-block ; *display: inline; zoom: 1; position: relative; top: 1px; padding: 1px 2px}
+						.header .user-block .user-progress i{background: #03e846 url(user-progress-in.png) repeat-x 0 0; height: 5px; display: block; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px}
 			
 		
-		.sub-header {background: #1a91df url(../images/noise-subheader.png) repeat 0 0; height: 72px; border-bottom: 2px solid #0a80cf; box-shadow: inset -1px 0 0 #1986cf; padding-top: 26px; overflow: hidden}
+		.sub-header {background: #1a91df url(noise-subheader.png) repeat 0 0; height: 72px; border-bottom: 2px solid #0a80cf; box-shadow: inset -1px 0 0 #1986cf; padding-top: 26px; overflow: hidden}
 			.sub-header-left {float: left; width: 520px}
 				.sub-header-left .slogan{font-size: 22px; color: #fff; font-weight: bold; letter-spacing: 4px; letter-spacing: 3px \9; margin-top: -3px; height: 23px; overflow: hidden; word-spacing: 2px; margin-bottom: 15px}
 				.sub-header-left .sub-slogan{color: #c8e9e7; font-size: 16px; text-shadow: #1177bb 0 -1px 0  }
@@ -57,14 +57,14 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 					.good-block .counter{font-size: 22px; color: #fff; text-shadow: rgba(0,0,0,0.2) 0 1px 1px; font-weight: bold; position: relative; 
 						-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(180,230,227,1)), to(rgba(200,233,231,0.8))); 
 					}
-						.good-block .counter span{height: 15px; width: 100%; background:url(../images/grad.png) repeat-x 0 0; position: absolute; left: 0; bottom: 0}
-					.good-block .help-icon{background: url(../images/help-icon.png) no-repeat 0 0; width: 17px;height: 23px; position: absolute; left: 2px; bottom: 2px; cursor: pointer;}
+						.good-block .counter span{height: 15px; width: 100%; background:url(grad.png) repeat-x 0 0; position: absolute; left: 0; bottom: 0}
+					.good-block .help-icon{background: url(help-icon.png) no-repeat 0 0; width: 17px;height: 23px; position: absolute; left: 2px; bottom: 2px; cursor: pointer;}
 					
-					.good-block.good-minutes {background: url(../images/good-minutes.png) no-repeat 0 0}
-					.good-block.good-people {background: url(../images/good-people.png) no-repeat 0 0}
+					.good-block.good-minutes {background: url(good-minutes.png) no-repeat 0 0}
+					.good-block.good-people {background: url(good-people.png) no-repeat 0 0}
 					
 		
-		.promo-block {overflow: hidden; background: #0a80cf url(../images/noise-promo.png) repeat 0 0; border-top: 2px solid #3d9ad9; padding-top: 22px; padding-bottom: 18px;}	
+		.promo-block {overflow: hidden; background: #0a80cf url(noise-promo.png) repeat 0 0; border-top: 2px solid #3d9ad9; padding-top: 22px; padding-bottom: 18px;}	
 			.promo-left {float: left; width: 520px; margin-right: 34px}	
 			.promo-right {overflow: hidden; }
 			
@@ -82,11 +82,11 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.login-block .login-form {text-align: left; width: 297px}
 					.login-block .login-form .line {margin-bottom: 9px; position: relative; overflow: hidden }
 					.login-block .login-form .line.l-ch {line-height: 22px; padding-top: 1px; padding-right: 4px; text-align: right}
-						.login-block .login-form .i-text{ background: url(../images/i-text.png) no-repeat 0 0; display: block; height: 42px; line-height: 42px; width: 273px; padding: 0 12px; border: 0; font-family: "PT Sans", sans-serif; font-size: 18px; color: #cdbda8; text-transform: uppercase  }
+						.login-block .login-form .i-text{ background: url(i-text.png) no-repeat 0 0; display: block; height: 42px; line-height: 42px; width: 273px; padding: 0 12px; border: 0; font-family: "PT Sans", sans-serif; font-size: 18px; color: #cdbda8; text-transform: uppercase  }
 						.login-block .login-form .i-text-short {padding-right: 112px; width: 173px}
-						.login-block .login-form .btn-login {background: url(../images/btn-login.png) no-repeat 0 0;width: 103px;height: 33px; position: absolute; margin-right: 4px; right: 0; top: 5px; border: 0; text-indent: -9999px; cursor: pointer;}
+						.login-block .login-form .btn-login {background: url(btn-login.png) no-repeat 0 0;width: 103px;height: 33px; position: absolute; margin-right: 4px; right: 0; top: 5px; border: 0; text-indent: -9999px; cursor: pointer;}
 						.login-block .login-form .line label {float: left; line-height: 22px }
-				.login-block .login-new {background: #1177bb url(../images/key.png) no-repeat 20px center; box-shadow: inset 1px 3px 2px #0f6ca9; padding: 5px 10px 5px 60px; margin: -1px; margin-top: 14px; line-height: 1.4; border: 1px solid #2f93d6; color: #c8e9e7; width: 228px }
+				.login-block .login-new {background: #1177bb url(key.png) no-repeat 20px center; box-shadow: inset 1px 3px 2px #0f6ca9; padding: 5px 10px 5px 60px; margin: -1px; margin-top: 14px; line-height: 1.4; border: 1px solid #2f93d6; color: #c8e9e7; width: 228px }
 
 				.login-block a {color: #fff; text-decoration: underline}
 					.login-block a:hover {text-decoration: none}
@@ -109,7 +109,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.action{border: 1px solid #eaeaea;  position: relative; overflow: hidden; zoom: 1; padding-right: 20px; margin-bottom: 3px}
 					.action .action-img{float: left; margin-right: 21px; margin: -1px 0 0 -1px; position: relative; margin-right: 14px}
 						.action .action-img img {display: block}
-						.action .action-img i {background: url(../images/action-img-angle.png) no-repeat 0 0;width: 19px;height: 14px; position: absolute; right: 0; top: 0}
+						.action .action-img i {background: url(action-img-angle.png) no-repeat 0 0;width: 19px;height: 14px; position: absolute; right: 0; top: 0}
 					.action .action-info{overflow: hidden; zoom: 1; color: #a28c70; padding-top: 24px; padding-left: 10px}
 						.action .action-info .action-title {font-size: 16px; text-transform: uppercase; font-weight: bold; height: 25px;  }
 						.action .action-info .action-text {padding-left: 32px; font-size: 13px; line-height: 1.3; height: 70px; margin-bottom: 13px; overflow: hidden; zoom: 1}
@@ -118,24 +118,24 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 							.action .action-info .action-progress {font-size: 13px}
 								.action .action-info .action-progress .action-progress-text{margin-bottom: 8px; }
 									.action .action-info .action-progress .action-progress-text span{color: #1177bc}
-								.action .action-info .action-progress-bar {background: #f4f4f4 url(../images/action-progress-bg.png) repeat-x 0 0; height: 7px; line-height: 7px; border: 1px solid #eeeeee; border-radius: 9px; -webkit-border-radius: 9px; -moz-border-radius: 9px; width: 273px; padding: 3px 5px 5px; margin-left: -5px}
-									.action .action-info .action-progress-bar i {height: 8px; line-height: 8px; background:#03e545 url(../images/action-progress-in.png) repeat-x 0 0; display: block; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px}
+								.action .action-info .action-progress-bar {background: #f4f4f4 url(action-progress-bg.png) repeat-x 0 0; height: 7px; line-height: 7px; border: 1px solid #eeeeee; border-radius: 9px; -webkit-border-radius: 9px; -moz-border-radius: 9px; width: 273px; padding: 3px 5px 5px; margin-left: -5px}
+									.action .action-info .action-progress-bar i {height: 8px; line-height: 8px; background:#03e545 url(action-progress-in.png) repeat-x 0 0; display: block; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px}
 
 						.action .action-info .action-br {position: absolute; right: 6px; bottom: 7px;}
 		
 			
 			.operations {padding-top: 12px; margin-right: -10px}
 				.operation {position: relative; height: 200px; width: 300px; display: inline-block ; *display: inline; zoom: 1; margin-bottom: 17px; vertical-align: top; text-align: left !important;}
-					.operation i{background: url(../images/operation-bg.png) no-repeat 0 0; position: absolute; left: -2px; top: 0; z-index: 5; width: 304px; height: 203px; }
+					.operation i{background: url(operation-bg.png) no-repeat 0 0; position: absolute; left: -2px; top: 0; z-index: 5; width: 304px; height: 203px; }
 					.operation .operation-img {}
-					.operation .operation-hover {position: absolute; left: 0; top: 0; background: url(../images/operation-pelena.png) no-repeat 0 0; width: 300px; height: 185px; padding-top: 15px; font-size: 14px; visibility: hidden}
+					.operation .operation-hover {position: absolute; left: 0; top: 0; background: url(operation-pelena.png) no-repeat 0 0; width: 300px; height: 185px; padding-top: 15px; font-size: 14px; visibility: hidden}
 						.operation .operation-hover span{color: #c8e9e7; padding: 0 10px; display: block; text-align: center; padding-bottom: 10px; }
 						.operation .operation-hover span em {font-size: 13px; font-style: italic}
-						.operation .operation-hover .round-btn {background: url(../images/hearth.png) no-repeat 0 0;width: 118px;height: 118px; display: block; margin: auto; padding: 0; margin-bottom: 7px; position: relative; z-index: 10}
+						.operation .operation-hover .round-btn {background: url(hearth.png) no-repeat 0 0;width: 118px;height: 118px; display: block; margin: auto; padding: 0; margin-bottom: 7px; position: relative; z-index: 10}
 							.operation .operation-hover .round-btn:hover {background-position: 0 -118px}
 					
 
-					.operation .operation-done {position: absolute; left: 0; top: 0; background: url(../images/operation-pelena.png) no-repeat 0 0; width: 300px; height: 200px; padding-top: 40px}
+					.operation .operation-done {position: absolute; left: 0; top: 0; background: url(operation-pelena.png) no-repeat 0 0; width: 300px; height: 200px; padding-top: 40px}
 						.operation.operation-done a {cursor: default}
 						.operation .operation-done span{color: #c8e9e7; padding: 0 10px; display: block; text-align: center; padding-bottom: 5px; }
 							.operation .operation-done span big {display: block; font-size: 16px; margin-top: -3px; }
@@ -174,7 +174,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			
 		.footer {background: #f2f2f2; padding: 27px 0 50px; border-top: 1px solid #ffffff; overflow: hidden; height: 127px; margin-top: -204px;}
 			.footer .footer-left {float: left; width: 604px; margin-right: 19px;   width: 570px; }
-				.footer .footer-left .copyright{padding: 25px 0px 24px 97px; background: url(../images/copyright.png) no-repeat 21px 23px; border:  1px solid #c8bcae; color: #a18b6f; line-height: 1.4; margin-right: 33px; margin-bottom: 19px; font-size: 14px; margin-right: 0}
+				.footer .footer-left .copyright{padding: 25px 0px 24px 97px; background: url(copyright.png) no-repeat 21px 23px; border:  1px solid #c8bcae; color: #a18b6f; line-height: 1.4; margin-right: 33px; margin-bottom: 19px; font-size: 14px; margin-right: 0}
 				.footer .footer-left .footer-menu {padding-left: 98px}
 					.footer .footer-left .footer-menu {overflow: hidden; zoom: 1;  overflow: hidden; margin-right: 20px }
 						.footer .footer-left .footer-menu ul{overflow: hidden; padding-bottom: 5px}
@@ -184,14 +184,14 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			.footer .footer-right {/* overflow: hidden;  */}
 				.footer .footer-right .contacts {margin-right: -120px; padding-top: 15px}
 					.footer .footer-right .contacts .contacts-item{color: #a18b6f; font-size: 24px; line-height: 64px; height: 60px; float: left; padding-left: 75px}
-						.footer .footer-right .contacts .mail{text-indent: -99999px; background: url(../images/email.png) no-repeat 0 0}
-						.footer .footer-right .contacts .phone{background: url(../images/phone.png) no-repeat 0 0}
+						.footer .footer-right .contacts .mail{text-indent: -99999px; background: url(email.png) no-repeat 0 0}
+						.footer .footer-right .contacts .phone{background: url(phone.png) no-repeat 0 0}
 
 		
 		.pelena, .popup{display: none}
 		.pelena {background: #000; position: fixed; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.6; filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=60); z-index: 8;}
-		.popup {background: url(../images/popup-bg.png) no-repeat 0 0; width: 1056px; height: 838px;  position: fixed; top: 50%; left: 50%; margin-left: -524px; margin-top: -419px; z-index: 10; }
-			.popup .popup-close {width: 71px; height: 71px; position: absolute; background: url(../images/popup-controls.png) no-repeat right 0; position: absolute; right: -36px; top: 0; cursor: pointer; z-index: 100 }
+		.popup {background: url(popup-bg.png) no-repeat 0 0; width: 1056px; height: 838px;  position: fixed; top: 50%; left: 50%; margin-left: -524px; margin-top: -419px; z-index: 10; }
+			.popup .popup-close {width: 71px; height: 71px; position: absolute; background: url(popup-controls.png) no-repeat right 0; position: absolute; right: -36px; top: 0; cursor: pointer; z-index: 100 }
 				.popup .popup-close:hover {background-position: right bottom}
 			.popup .popup-content {width: 862px; height: 644px; margin: auto; margin-top: 97px; position: relative}
 			.popup .popup-slide {width: 862px; height: 644px; float: left; }
@@ -202,13 +202,13 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 		
 		
 		.btn {}
-			.btn-go-action {background: url(../images/btn-go.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
-			.btn-change-action {background: url(../images/btn-change.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
+			.btn-go-action {background: url(btn-go.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
+			.btn-change-action {background: url(btn-change.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
 			.btn-do {width: 150px;  text-align: center; color: #28a3f1; display: inline-block; *display: inline; zoom: 1; vertical-align: middle; margin-top: 75px}
-				.btn-do i {display: block; background: url(../images/hearth.png) no-repeat center 0; height: 118px; width: 118px; margin: auto; margin-bottom: 12px}
+				.btn-do i {display: block; background: url(hearth.png) no-repeat center 0; height: 118px; width: 118px; margin: auto; margin-bottom: 12px}
 				.btn-do:hover i {background-position: 0 -118px !important; }
 				.btn-do:hover i span {opacity: 0 !important}
-				.btn-do i span{background: url(../images/hearth.png) no-repeat center bottom;width: 118px;height: 118px; display: block }
+				.btn-do i span{background: url(hearth.png) no-repeat center bottom;width: 118px;height: 118px; display: block }
 			
 		
 /* other help */
@@ -222,7 +222,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
  *
  **/
 .ez-hide { opacity: 0; filter:alpha(opacity=0); }
-.ez-checkbox { background: url(../images/i-rad.png) no-repeat right 0; display:inline-block; *display: inline; zoom: 1; height: 22px; width: 22px; margin-right: 3px}
+.ez-checkbox { background: url(i-rad.png) no-repeat right 0; display:inline-block; *display: inline; zoom: 1; height: 22px; width: 22px; margin-right: 3px}
 .ez-checked { background-position: 0 0 }
 
 
