@@ -45,22 +45,27 @@
               br
               | существующего аккаунта или зарегистрироваться
           .login-social
-            = image_tag 'login-social.png', size: '306x33', alt: 'login-social'
+            = link_to omniauth_authorize_path(resource_name, 'facebook') do
+              = image_tag 'login-social.png', size: '306x33', alt: 'login-social'
             /img[src="/login-social.png" alt="login-social" width="306" height="33"]
           .login-form
-            form[action="" method="post"]
+            /form[action="" method="post"]
+            = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
               .line
-                input.i-text[type="text" title="Email"]
+                = f.text_field :email, class: 'i-text', title: "Email", size: nil
+                /input.i-text[type="text" title="Email"]
               .line
-                input.i-text.i-text-short[type="password" title="Пароль"]
-                input.btn-login[type="submit" value="Войти"]
+                = f.password_field :password, class: 'i-text i-text-short', title: "Пароль", size: nil
+                /input.i-text.i-text-short[type="password" title="Пароль"]
+                = f.submit 'Войти', class: 'btn-login'
+                /input.btn-login[type="submit" value="Войти"]
               .line.l-ch
                 label
-                  input.i-ch[type="checkbox"]
+                  = f.check_box :remember_me, class: 'i-ch'
+                  /input.i-ch[type="checkbox"]
                   |  Запомнить меня 
                 a[href=""]
                   | Забыли пароль?
           .login-new
-            a[href=""]
-              | Зарегистрироваться
+            = link_to  'Зарегистрироваться', new_registration_path(resource_name)
             | , если у Вас еще нет аккаунта на 1minute 
