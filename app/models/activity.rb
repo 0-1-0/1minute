@@ -1,9 +1,9 @@
 class Activity < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
-  attr_accessible :data, :description, :image, :instantly, :minutes, :money, :activity_type
+  attr_accessible :name, :data, :description, :image, :instantly, :minutes, :money, :activity_type
 
-  validates_presence_of :data, :description, :minutes, :money, :activity_type
+  validates_presence_of :name, :data, :description, :minutes, :money, :activity_type
 
   def pending_transactions
     Transaction.where(activity_id: id, status: 'pending').count

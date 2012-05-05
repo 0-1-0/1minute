@@ -1,7 +1,7 @@
 doctype
 html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
   head
-    title
+    title 1minute
     meta[http-equiv="Content-Type" content="text/html;charset=UTF-8"]
     meta[http-equiv="X-UA-Compatible" content="IE=EmulateIE8"]
     meta[name="viewport" content="width=1020"]
@@ -32,11 +32,11 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                   a[href=""]
                     | FAQ
             .user-block-border
-              .user-block
-                span.user-name
-                  | Pavlovsky Roman
-                span.user-progress
-                  i[style="width:60%"]
+              - if user_signed_in?
+                .user-block
+                  span.user-name= current_user.nickname || current_user.email
+                  span.user-progress
+                    i[style="width:#{current_user.minutes%100}%"]
         .sub-header
           .main-width
             .sub-header-left

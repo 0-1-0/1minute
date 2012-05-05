@@ -55,12 +55,15 @@
                 .action-progress
                   .action-progress-text
                     | Собрано 
-                    span
-                      | 33
-                    |  из 1000 кг корма
+                    span= event.current_min.to_f
+                    |  из #{event.target_minimum.to_f} минут
                   .action-progress-bar
-                    i[style="width:50%"]
+                    i[style="width:#{(100*(event.current_min.to_f/event.target_minimum.to_f)).to_i}%"]
               .action-br
                 = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
-                /a.btn.btn-go-action[href=""]
-                  /| Перейти к действиям
+                - if current_user.is_admin?
+                  = link_to 'Редактировать', edit_event_path(event)
+                  = link_to 'Удалить', event_path(event), :method => :delete, confirm: 'Are you sure?'
+        = link_to 'Создать новый', new_event_path
+        br
+        = link_to 'К действиям', activities_path

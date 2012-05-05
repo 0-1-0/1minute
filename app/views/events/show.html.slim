@@ -84,49 +84,50 @@
 .full-block.grey
   .full-content
     .main-width
-      .operations.ta-justify
+      .operations
         - Activity.all.each do |activity|
-          .operation
-            = link_to '#' do
+          - unless activity.done?(current_user)
+            .operation
+              = link_to '#' do
+                span.operation-img
+                  = image_tag activity.image_url, alt: "operation-img", size: '300x200'
+                  /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
+                span.operation-hover
+                  span.round-btn
+                  span= activity.name
+                  span
+                    em
+                      | Действие приносит #{activity.minutes} добрые минуты
+                i
+          - else
+            .operation.operation-done
               span.operation-img
                 = image_tag activity.image_url, alt: "operation-img", size: '300x200'
-                /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
-              span.operation-hover
-                span.round-btn
-                span= activity.description
+              span.operation-done
                 span
-                  em
-                    | Действие приносит #{activity.minutes} добрые минуты
+                  | Спасибо.
+                span
+                  big
+                    | Действие совершено
+                span
+                  = image_tag 'good-minutes.png', size: '25x28'
+                  /img[src="images/good-minutes.png" alt="good-minutes" width="25" height="28"]
+                span
+                  em Вы подарили #{activity.minutes} добрые минуты
               i
-        
-        .operation.operation-done
-          span.operation-img
-            img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
-          span.operation-done
-            span
-              | Спасибо.
-            span
-              big
-                | Действие совершено
-            span
-              img[src="images/good-minutes.png" alt="good-minutes" width="25" height="28"]
-            span
-              em
-                | Вы подарили 3 добрые минуты
-          i
-        .operation
-          span.operation-img
-            img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
-          span.operation-impossible
-            span.close
-            span
-              big
-                | Действие не может
-                br
-                | быть совершено:
-            span
-              | Google Chrome у вас уже установлен
-          i          
+        /.operation
+          /span.operation-img
+            /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
+          /span.operation-impossible
+            /span.close
+            /span
+              /big
+                /| Действие не может
+                /br
+                /| быть совершено:
+            /span
+              /| Google Chrome у вас уже установлен
+          /i          
 .pelena
 .popup
   .popup-content
@@ -134,48 +135,29 @@
     .popup-slider
       .slides_container
         - Activity.all.each do |activity|
-          .popup-slide
-            .fullaction
-              .fullaction-title
-                .fullaction-title-left.p-f-left
-                  | Простое действие:  
-                  span
-                    | Зарегистрироваться на сайте Groupon
-                .fullaction-title-right
-                  | Действие приносит 
-                  strong
-                    | 3
-                  |  добрые минуты
-              .fullaction-info
-                .scrollable
-                  .textblock
-                    h3
-                      | О Starbucks
-                    p
-                      | Кофейная компания Starbucks – ведущий в мире розничный продавец кофе и лидер по промышленному обжариванию кофейных зерен.
-                    p
-                      | Также Starbucks – всемирно известный бренд фирменного кофе с сетью более 16,000 кофеен, расположенных в Северной и Латинской Америке, Европе, на Ближнем Востоке и в странах Азии и Океании.
-                    p
-                      | Мы убеждены, что можно делать добрые дела и в то же время преуспевать в бизнесе.
-                    p
-                      | Кофейная компания Starbucks – ведущий в мире розничный продавец кофе и лидер по промышленному обжариванию кофейных зерен.
-                    p
-                      | Также Starbucks – всемирно известный бренд фирменного кофе с сетью более 16,000 кофеен, расположенных в Северной и Латинской Америке, Европе, на Ближнем Востоке и в странах Азии и Океании.
-                    p
-                      | Мы убеждены, что можно делать добрые дела и в то же время преуспевать в бизнесе.
-                    p
-                      | Кофейная компания Starbucks – ведущий в мире розничный продавец кофе и лидер по промышленному обжариванию кофейных зерен.
-                    p
-                      | Также Starbucks – всемирно известный бренд фирменного кофе с сетью более 16,000 кофеен, расположенных в Северной и Латинской Америке, Европе, на Ближнем Востоке и в странах Азии и Океании.
-                    p
-                      | Мы убеждены, что можно делать добрые дела и в то же время преуспевать в бизнесе.
-                .fullaction-img
-                  img[src="images/content/groupon.jpg" alt="groupon" width="216" height="95"]
-              .fullaction-info.fullaction-info-last
-                .fullaction-bigimg
-                  img[src="images/content/bigimg.jpg" alt="bigimg" width="500" height="300"]
-                .fullaction-do
-                  = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
-                    i
-                      span
-                    |  Совершить действие 
+          - unless activity.done?(current_user)
+            .popup-slide
+              .fullaction
+                .fullaction-title
+                  .fullaction-title-left.p-f-left
+                    | Простое действие:  
+                    span= activity.name
+                  .fullaction-title-right
+                    | Действие приносит 
+                    strong= activity.minutes
+                    |  добрые минуты
+                .fullaction-info
+                  .scrollable
+                    .textblock= activity.description.html_safe
+                  .fullaction-img
+                    = image_tag 'content/groupon.jpg', size: '216x95'
+                    /img[src="content/groupon.jpg" alt="groupon" width="216" height="95"]
+                .fullaction-info.fullaction-info-last
+                  .fullaction-bigimg
+                    = image_tag 'content/bigimg.jpg', size: '500x300'
+                    /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
+                  .fullaction-do
+                    = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
+                      i
+                        span
+                      |  Совершить действие 
