@@ -1,52 +1,87 @@
-doctype html
-html lang="en"
+doctype
+html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
   head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title= content_for?(:title) ? yield(:title) : "1minute"
-    = csrf_meta_tags
-
-    /! Le HTML5 shim, for IE6-8 support of HTML elements
-    /[if lt IE 9]
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
-    = stylesheet_link_tag "application", :media => "all"
-    link href="images/favicon.ico" rel="shortcut icon"
-    link href="images/apple-touch-icon.png" rel="apple-touch-icon"
-    link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"
-    link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"
-
-  body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to '1minute',  root_path, class: 'brand'
-          .container
-            - if user_signed_in?
-              - if current_user.is_admin?
-                ul.nav
-                  li= link_to 'Events', events_path
-                  li= link_to 'Activity', activities_path               
-              #user_navbar.pull-right style="padding-top: 8px;"
-                span.nickname= (current_user.nickname || current_user.email) + " (#{current_user.minutes}) "
-                = link_to 'Sign out', destroy_user_session_path, method: :delete
-
-    .container
-
-      .content
-        - if notice
-          .alert.alert-info
-            a.close data-dismiss="alert" x
-            = notice
-        - if alert
-          .alert.alert-error
-            a.close data-dismiss="alert" x
-            = alert
-        = yield
-    
-      footer
-        p &copy; 1minute 2012
-    /!
-      Javascripts
-      \==================================================
-    /! Placed at the end of the document so the pages load faster
+    title
+    meta[http-equiv="Content-Type" content="text/html;charset=UTF-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=EmulateIE8"]
+    meta[name="viewport" content="width=1020"]
+    = stylesheet_link_tag "application", media: 'all'
+    link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
     = javascript_include_tag "application"
+  body
+    .background.inside-page
+      .main-div
+        .header
+          .main-width
+            .logo
+              a[href=""]
+                img[src="images/logo.png" alt="logo" width="200" height="44"]
+            .header-menu
+              ul
+                li
+                  a[href=""]
+                    | Команда
+                li
+                  a[href=""]
+                    | Блог
+                li
+                  a[href=""]
+                    | Партнеры
+                li
+                  a[href=""]
+                    | FAQ
+            .user-block-border
+              .user-block
+                span.user-name
+                  | Pavlovsky Roman
+                span.user-progress
+                  i[style="width:60%"]
+        .sub-header
+          .main-width
+            .sub-header-left
+              .slogan
+                | ТВОЯ МИНУТА НА ДОБРО
+              .sub-slogan
+                | Потрать минуту. Выполни действия. Помоги доброму делу.
+            .sub-header-right
+              .good-blocks.ta-justify
+                .good-block.good-minutes
+                  .title
+                    | Добрые минуты
+                  .counter
+                    | 313,124
+                  span.help-icon
+                .good-block.good-people
+                  .title
+                    | Добрые люди
+                  .counter
+                    | 313,124
+                  span.help-icon
+        = yield       
+    .footer
+      .main-width
+        .footer-left
+          .copyright
+            | При любом использовании материалов сайта гиперссылка на 1minute.ru 
+            br
+            | и явное указание первоисточника обязательна. 1minute © 2011
+          .footer-menu
+            ul
+              li
+                a[href=""]
+                  | Команда
+              li
+                a[href=""]
+                  | Блог
+              li
+                a[href=""]
+                  | Партнеры
+              li
+                a[href=""]
+                  | FAQ
+        .footer-right
+          .contacts
+            a.contacts-item.mail[href="mailto:aa@aa.aa"]
+              | aa@aa.aa
+            span.contacts-item.phone
+              | +7 (495) 789 35 76

@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require_tree .
+// require twitter/bootstrap
+// require_tree .
+//= require jquery.mousewheel.min
+//= require jquery.jscrollpane.min
+//= require slides.jquery
+//= require jquery.ezmark.min
+//= require jquery.example.min
+//= require main
