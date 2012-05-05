@@ -1,0 +1,62 @@
+/<h2>Sign in</h2>
+
+/<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+/  <div class="inputs">
+/    <%= f.input :email, :required => false, :autofocus => true %>
+/    <%= f.input :password, :required => false %>
+/    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+/  </div>
+
+/  <div class="actions">
+/    <%= f.button :submit, "Sign in" %>
+/  </div>
+/<% end %>
+
+/<%= render "links" %>
+.promo-block
+  .main-width
+    .promo-left
+      .promo-slider
+        .slides_container
+          div
+            img[src="images/content/photo-1.png" alt="photo-1" width="519" height="321"]
+          div
+            img[src="images/content/photo-2.png" alt="photo-1" width="519" height="321"]
+          div
+            img[src="images/content/photo-3.png" alt="photo-1" width="519" height="321"]
+      .promo-caption
+        .h3
+          | Теперь помогать может каждый. Начните прямо сейчас!
+        .p
+          | Нужна всего 1 минута, чтобы помочь: выбери акцию одного из благотворительных фондов, соверши несколько простых действий от наших рекламодателей. Все! 
+          br
+          | Деньги за выполненные действия перечислятся на доброе дело.
+    .promo-right
+      .login-block-wrap
+        .login-block
+          .login-text
+            .title
+              | Присоедениться к добрым людям
+            small
+              | Чтобы начать помогать нужно войти с помощью
+              br
+              | существующего аккаунта или зарегистрироваться
+          .login-social
+            img[src="images/login-social.png" alt="login-social" width="306" height="33"]
+          .login-form
+            form[action="" method="post"]
+              .line
+                input.i-text[type="text" title="Email"]
+              .line
+                input.i-text.i-text-short[type="password" title="Пароль"]
+                input.btn-login[type="submit" value="Войти"]
+              .line.l-ch
+                label
+                  input.i-ch[type="checkbox"]
+                  |  Запомнить меня 
+                a[href=""]
+                  | Забыли пароль?
+          .login-new
+            a[href=""]
+              | Зарегистрироваться
+            | , если у Вас еще нет аккаунта на 1minute 
