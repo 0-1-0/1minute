@@ -36,4 +36,8 @@ class Activity < ActiveRecord::Base
     end
 
   end
+
+  def done?(user)
+    return Transaction.where(activity_id: id, user_id: user.id).count > 0
+  end
 end
