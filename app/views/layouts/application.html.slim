@@ -32,15 +32,13 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                 li
                   a[href=""]
                     | FAQ
-                - if current_user
-                  li
-                    = link_to 'logout', destroy_user_session_path, method: :delete
             .user-block-border
               - if user_signed_in?
                 .user-block
                   span.user-name= current_user.nickname || current_user.email
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
+                  = link_to 'logout', destroy_user_session_path, method: :delete
         .sub-header
           .main-width
             .sub-header-left
