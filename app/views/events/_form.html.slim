@@ -3,6 +3,8 @@
   = f.input :description
   = image_tag(@event.image_url) if @event.image?
   = f.input :image, as: :file
+  = f.input :conv_course
+  = f.input :ex_name
   = f.input :target_minimum
   .form-actions
     = f.button :submit, :class => 'btn-primary'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505211132) do
+ActiveRecord::Schema.define(:version => 20120506183741) do
 
   create_table "activities", :force => true do |t|
     t.string   "activity_type"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20120505211132) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "name"
+    t.string   "big_image"
+    t.string   "logo_image"
   end
 
   add_index "activities", ["activity_type"], :name => "index_actions_on_type"
@@ -37,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120505211132) do
     t.float    "current_money",  :default => 0.0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.float    "conv_course"
+    t.string   "ex_name"
   end
 
   add_index "events", ["name"], :name => "index_events_on_name"
