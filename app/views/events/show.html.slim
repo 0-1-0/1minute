@@ -65,12 +65,12 @@
             .action-text= @event.description
             .action-bl
               .action-rules
-                | 1 мин = 1 добрая минута
+                | 1 мин = #{@event.conv_course} #{@event.ex_name}
               .action-progress
                 .action-progress-text
                   | Собрано 
-                  span= @event.current_min
-                  |  из #{@event.target_minimum} кг корма
+                  span= @event.current_min * @event.conv_course
+                  |  из #{@event.target_minimum * @event.conv_course} #{@event.ex_name}
                 .action-progress-bar
                   i[style="width:#{(100*(@event.current_min.to_f/@event.target_minimum.to_f)).to_i}%"]
             .action-br
@@ -150,11 +150,11 @@
                   .scrollable
                     .textblock= activity.description.html_safe
                   .fullaction-img
-                    = image_tag 'content/groupon.jpg', size: '216x95'
+                    = image_tag activity.logo_image_url, size: '216x95'
                     /img[src="content/groupon.jpg" alt="groupon" width="216" height="95"]
                 .fullaction-info.fullaction-info-last
                   .fullaction-bigimg
-                    = image_tag 'content/bigimg.jpg', size: '500x300'
+                    = image_tag activity.big_image_url, size: '216x95'
                     /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
                   .fullaction-do
                     = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do

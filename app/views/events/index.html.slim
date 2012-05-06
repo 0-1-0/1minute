@@ -51,12 +51,12 @@
               .action-text= event.description
               .action-bl
                 .action-rules
-                  | 1 мин = 1 добрая минута
+                  | 1 мин = #{event.conv_course} #{event.ex_name}
                 .action-progress
                   .action-progress-text
                     | Собрано 
-                    span= event.current_min.to_f
-                    |  из #{event.target_minimum.to_f} минут
+                    span= event.current_min.to_f * event.conv_course
+                    |  из #{event.target_minimum * event.conv_course} #{event.ex_name}
                   .action-progress-bar
                     i[style="width:#{(100*(event.current_min.to_f/event.target_minimum.to_f)).to_i}%"]
               .action-br

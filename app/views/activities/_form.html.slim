@@ -7,7 +7,9 @@
   = f.input :money
   = image_tag(@activity.image_url) if @activity.image?
   = f.input :image, as: :file
+  = image_tag(@activity.big_image_url) if @activity.big_image?
   = f.input :big_image, as: :file
+  = image_tag(@activity.logo_image_url) if @activity.logo_image?
   = f.input :logo_image, as: :file
   = f.input :instantly, as: :boolean
   .form-actions
