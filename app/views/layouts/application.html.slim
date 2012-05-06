@@ -8,6 +8,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
     = javascript_include_tag "application"
+    = csrf_meta_tags
   body
     .background.inside-page
       .main-div
@@ -31,6 +32,9 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                 li
                   a[href=""]
                     | FAQ
+                - if current_user
+                  li
+                    = link_to 'logout', destroy_user_session_path, method: :delete
             .user-block-border
               - if user_signed_in?
                 .user-block
