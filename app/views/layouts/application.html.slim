@@ -7,7 +7,10 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     meta[name="viewport" content="width=1020"]
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
+    = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
     = javascript_include_tag "application"
+    javascript:
+      VK.init({apiId: 2940707, onlyWidgets: true});
     = csrf_meta_tags
   body
     .background.inside-page

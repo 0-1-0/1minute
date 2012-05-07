@@ -158,8 +158,15 @@
                   .fullaction-bigimg
                     = image_tag activity.big_image_url, size: '216x95'
                     /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
-                  .fullaction-do
-                    = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
-                      i
-                        span
-                      |  Совершить действие 
+                  - if activity.activity_type == 'link'
+                    .fullaction-do
+                      = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
+                        i
+                          span
+                        |  Совершить действие 
+                  - elsif activity.activity_type == "vkontakte like"
+                    div id="#{activity.id}_like"
+                    javascript:
+                      $(document).ready(function() {
+                        return VK.Widgets.Like("#{activity.id}_like", {type: "mini", pageUrl:"#{activity.data.html_safe}"});;
+                      });
