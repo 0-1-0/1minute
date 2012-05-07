@@ -10,7 +10,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
     = javascript_include_tag "application"
     javascript:
-      VK.init({apiId: 2940707, onlyWidgets: true});
+      VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
     = csrf_meta_tags
   body
     .background.inside-page
