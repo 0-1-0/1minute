@@ -58,7 +58,7 @@
                     span= event.current_min.to_f * event.conv_course
                     |  из #{event.target_minimum * event.conv_course} #{event.ex_name}
                     - if current_user.is_admin?
-                      | (#{@event.current_money}$)
+                      | (#{event.current_money}$)
                   .action-progress-bar
                     i[style="width:#{(100*(event.current_min.to_f/event.target_minimum.to_f)).to_i}%"]
               .action-br
