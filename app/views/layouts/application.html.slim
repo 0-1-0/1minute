@@ -8,11 +8,30 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
+    = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = javascript_include_tag "application"
     javascript:
+      FB.init({
+        appId  : "#{ENV['FB_APP_ID']}",
+        status : true, // check login status
+        cookie : true, // enable cookies to allow the server to access the session
+        xfbml  : true  // parse XFBML
+      });
       VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
+      window.fb_map = {}
     = csrf_meta_tags
   body
+    #fb-root
+    javascript:
+      $(document).ready(function() {
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=#{ENV['FB_APP_ID']}";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      });
     .background.inside-page
       .main-div
         .header

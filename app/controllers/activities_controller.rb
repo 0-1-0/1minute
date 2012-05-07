@@ -88,31 +88,33 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @event = Event.find(params[:event])
 
+    # проверяем на дубликаты
+    unless Transaction.where(user_id: current_user.id, activity_id: @activity.id, event_id: @event.id).first
+      t = Transaction.create(
+        user_id: current_user.id,
+        activity_id: @activity.id,
+        event_id: @event.id,
+        minutes: @activity.minutes,
+        money: @activity.money,
+        status: (@activity.instantly? ? 'done' : 'pending'))
+
+
+      current_user.minutes += @activity.minutes
+      current_user.save
+
+      if @activity.instantly?
+        @event.current_money += @activity.money
+        @event.current_min += @activity.minutes
+        @event.save!
+      end
+    end
+
     case @activity.activity_type
     when "link"
-      # проверяем на дубликаты
-      unless Transaction.where(user_id: current_user.id, activity_id: @activity.id, event_id: @event.id).first
-        t = Transaction.create(
-          user_id: current_user.id,
-          activity_id: @activity.id,
-          event_id: @event.id,
-          minutes: @activity.minutes,
-          money: @activity.money,
-          status: (@activity.instantly? ? 'done' : 'pending'))
-
-
-        current_user.minutes += @activity.minutes
-        current_user.save
-
-        if @activity.instantly?
-          @event.current_money += @activity.money
-          @event.current_min += @activity.minutes
-          @event.save!
-        end
-      end
-
-      redirect_to @activity.data
+      return redirect_to @activity.data
     end
+
+    render text: 'ok'
   end
 
   def resolve_pending
