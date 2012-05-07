@@ -52,13 +52,13 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                   .title
                     | Добрые минуты
                   .counter
-                    | 313,124
+                    = User.sum(:minutes)
                   span.help-icon
                 .good-block.good-people
                   .title
                     | Добрые люди
                   .counter
-                    | 313,124
+                    = User.count
                   span.help-icon
         = yield       
     .footer
