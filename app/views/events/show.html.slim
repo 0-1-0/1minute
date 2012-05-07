@@ -177,7 +177,7 @@
 javascript:
   FB.Event.subscribe('edge.create',
     function(response) {
-      $.get('http://oneminute.dev/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
+      $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
         alert('Спасибо!');
       });
     }

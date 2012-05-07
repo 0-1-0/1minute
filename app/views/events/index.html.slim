@@ -66,8 +66,9 @@
                 - if current_user.is_admin?
                   = link_to 'Редактировать', edit_event_path(event)
                   = link_to 'Удалить', event_path(event), :method => :delete, confirm: 'Are you sure?'
-        = link_to 'Создать новую акцию', new_event_path
-        br
-        = link_to 'Создать новое действие', new_activity_path
-        br
-        = link_to 'К действиям', activities_path
+        - if current_user.is_admin?
+          = link_to 'Создать новую акцию', new_event_path
+          br
+          = link_to 'Создать новое действие', new_activity_path
+          br
+          = link_to 'К действиям', activities_path
