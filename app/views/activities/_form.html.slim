@@ -7,6 +7,7 @@
   = f.input :verbose_name
   = f.input :money
   = f.input :service_fee
+  = f.input :sorting_order
   = image_tag(@activity.image_url) if @activity.image?
   = f.input :image, as: :file
   = image_tag(@activity.big_image_url) if @activity.big_image?

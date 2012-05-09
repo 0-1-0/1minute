@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   mount_uploader :big_image, ImageUploader
   mount_uploader :logo_image, ImageUploader
 
-  attr_accessible :name, :data, :description, :image, :instantly, :minutes, :money, :verbose_name, :activity_type, :service_fee, :big_image, :logo_image
+  attr_accessible :sorting_order,:name, :data, :description, :image, :instantly, :minutes, :money, :verbose_name, :activity_type, :service_fee, :big_image, :logo_image
 
   validates_presence_of :name, :data, :description, :minutes, :money, :activity_type
 

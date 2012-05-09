@@ -1,14 +1,21 @@
-h1 money per activity
-table
+javascript:
+  var link = document.createElement('link');
+
+  link.setAttribute('rel', 'stylesheet');
+
+  link.type = 'text/css';
+
+  link.href = '/assets/bootstrap.min.css';
+
+  document.head.appendChild(link);
+
+
+table class="table table-bordered"
   tr
-    th
-      Name
-    th
-      Total money
-    th 
-      Total minutes
-    th
-      Total Service Fee
+    th Название Акции
+    th Денег собрано
+    th Минут собрано
+    th Собрано сдредств для 1minute
   - @events.each do |event|
     tr
       td=event.name
@@ -16,10 +23,13 @@ table
       td=event.current_min
       td=event.current_service_fee
 
-h2 Total money:
-=@total[:money]
-h2 Total minutes:
-=@total[:min]
-h2 Total Service Fee:
-=@total[:service_fee]
+table class="table table-bordered"
+  tr
+    th Всего денег собрано:
+    th Всего минут собрано:
+    th Всего сорано денег для 1minute:
+  tr
+    td=@total[:money]
+    td=@total[:min]
+    td=@total[:service_fee]
 

@@ -69,10 +69,8 @@
               .action-progress
                 .action-progress-text
                   | Собрано 
-                  span= @event.current_min * @event.conv_course
-                  |  из #{@event.target_minimum * @event.conv_course} #{@event.ex_name}
-                  - if current_user.is_admin?
-                    | (#{@event.current_money}$)
+                  span= (@event.current_min * @event.conv_course).to_i
+                  |  из #{(@event.target_minimum * @event.conv_course).to_i} #{@event.ex_name}
                 .action-progress-bar
                   i[style="width:#{(100*(@event.current_min.to_f/@event.target_minimum.to_f)).to_i}%"]
             .action-br
@@ -136,7 +134,7 @@
     span.popup-close
     .popup-slider
       .slides_container
-        - Activity.all.each do |activity|
+        - Activity.find(:all, :order => :sorting_order).each do |activity|
           - unless activity.done?(current_user)
             .popup-slide
               .fullaction
