@@ -147,7 +147,8 @@
                   .fullaction-title-right
                     | Действие приносит 
                     strong= activity.minutes
-                    |  добрые минуты
+                    |  
+                    = activity.verbose_name
                 .fullaction-info
                   .scrollable
                     .textblock= activity.description.html_safe

@@ -60,7 +60,8 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                   span.user-name= current_user.nickname || current_user.email
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
-                  = link_to 'logout', destroy_user_session_path, method: :delete
+                  - if current_user.is_admin?
+                    = link_to 'logout', destroy_user_session_path, method: :delete
         .sub-header
           .main-width
             .sub-header-left
