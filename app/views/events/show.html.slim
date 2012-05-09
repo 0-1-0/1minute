@@ -152,11 +152,11 @@
                   .scrollable
                     .textblock= activity.description.html_safe
                   .fullaction-img
-                    = image_tag activity.logo_image_url, size: '216x95'
+                    = image_tag activity.logo_image_url
                     /img[src="content/groupon.jpg" alt="groupon" width="216" height="95"]
                 .fullaction-info.fullaction-info-last
                   .fullaction-bigimg
-                    = image_tag activity.big_image_url, size: '216x95'
+                    = image_tag activity.big_image_url
                     /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
                   - if activity.activity_type == 'link'
                     .fullaction-do
