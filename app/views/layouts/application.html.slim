@@ -54,15 +54,15 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                 li
                   a[href=""]
                     | FAQ
+                - if user_signed_in? && current_user.is_admin?
+                  li= link_to 'Выйти', destroy_user_session_path, method: :delete
+                  li= link_to 'Статистика', :controller => :statistics, :action => :show
             .user-block-border
               - if user_signed_in?
                 .user-block
                   span.user-name= current_user.nickname || current_user.email
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
-                  - if current_user.is_admin?
-                    = link_to 'Выйти', destroy_user_session_path, method: :delete
-                    = link_to 'Статистика', :controller => :statistics, :action => :show
         .sub-header
           .main-width
             .sub-header-left

@@ -1,3 +1,13 @@
+javascript:
+  var link = document.createElement('link');
+
+  link.setAttribute('rel', 'stylesheet');
+
+  link.type = 'text/css';
+
+  link.href = 'assets/bootstrap.min.css';
+
+  document.head.appendChild(link);
 - model_class = Activity.new.class
 h1=t '.title', :default => model_class.model_name.human.pluralize
 table class="table table-striped"
