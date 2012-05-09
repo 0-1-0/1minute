@@ -35,6 +35,7 @@ gem 'omniauth-vkontakte'
 
 # хранение изображений
 gem 'carrierwave'
+gem 'fog'
 
 
 gem 'thin'

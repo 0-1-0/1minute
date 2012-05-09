@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20120506183741) do
     t.float    "current_money",  :default => 0.0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
-    t.float    "conv_course"
+    t.float    "conv_course",    :default => 1.0
     t.string   "ex_name"
   end
 
