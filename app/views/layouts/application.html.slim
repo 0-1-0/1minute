@@ -61,7 +61,8 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
                   - if current_user.is_admin?
-                    = link_to 'logout', destroy_user_session_path, method: :delete
+                    = link_to 'Выйти', destroy_user_session_path, method: :delete
+                    = link_to 'Статистика', :controller => :statistics, :action => :show
         .sub-header
           .main-width
             .sub-header-left

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20120509134551) do
     t.datetime "updated_at",                           :null => false
     t.float    "conv_course",         :default => 1.0
     t.string   "ex_name"
-    t.float    "current_service_fee"
+    t.float    "current_service_fee", :default => 0.0
   end
 
   add_index "events", ["name"], :name => "index_events_on_name"

@@ -1,4 +1,6 @@
 Oneminute::Application.routes.draw do
+  get "statistics/show"
+
   resources :activities do
     member do
       get 'do_it'

@@ -1,0 +1,25 @@
+h1 money per activity
+table
+  tr
+    th
+      Name
+    th
+      Total money
+    th 
+      Total minutes
+    th
+      Total Service Fee
+  - @events.each do |event|
+    tr
+      td=event.name
+      td=event.current_money
+      td=event.current_min
+      td=event.current_service_fee
+
+h2 Total money:
+=@total[:money]
+h2 Total minutes:
+=@total[:min]
+h2 Total Service Fee:
+=@total[:service_fee]
+
