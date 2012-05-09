@@ -5,6 +5,7 @@
   = f.input :data
   = f.input :minutes
   = f.input :money
+  = f.input :service_fee
   = image_tag(@activity.image_url) if @activity.image?
   = f.input :image, as: :file
   = image_tag(@activity.big_image_url) if @activity.big_image?

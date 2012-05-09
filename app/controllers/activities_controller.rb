@@ -96,6 +96,7 @@ class ActivitiesController < ApplicationController
         event_id: @event.id,
         minutes: @activity.minutes,
         money: @activity.money,
+        service_fee: @activity.service_fee,
         status: (@activity.instantly? ? 'done' : 'pending'))
 
 
@@ -105,6 +106,7 @@ class ActivitiesController < ApplicationController
       if @activity.instantly?
         @event.current_money += @activity.money
         @event.current_min += @activity.minutes
+        @event.current_service_fee += @activity.service_fee
         @event.save!
       end
     end

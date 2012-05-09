@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   mount_uploader :big_image, ImageUploader
   mount_uploader :logo_image, ImageUploader
 
-  attr_accessible :name, :data, :description, :image, :instantly, :minutes, :money, :activity_type, :big_image, :logo_image
+  attr_accessible :name, :data, :description, :image, :instantly, :minutes, :money, :activity_type, :service_fee, :big_image, :logo_image
 
   validates_presence_of :name, :data, :description, :minutes, :money, :activity_type
 
@@ -14,15 +14,18 @@ class Activity < ActiveRecord::Base
   def resolve_pending(money)
     sum_minutes = 0
     sum_money = 0.0
+    sum_service_fee = 0.0
     ev = {}
 
     Transaction.where(activity_id: id, status: 'pending').each do |t|
       sum_minutes += t.minutes
       sum_money   += t.money
+      sum_service_fee += t.service_fee
 
       ev[t.event_id] = {minutes: 0, money: 0.0} unless ev[t.event_id]
       ev[t.event_id][:minutes] += t.minutes
       ev[t.event_id][:money]   += t.money
+      ev[t.event_id][:service_fee] += t.service_fee
 
       t.status = 'done'
       t.save
@@ -34,6 +37,7 @@ class Activity < ActiveRecord::Base
       event = Event.find(k)
       event.current_money += v[:money] * rel
       event.current_min   += v[:minutes] * rel
+      event.current_service_fee += v[:service_fee] * rel
       event.save
     end
 
