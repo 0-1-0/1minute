@@ -29,7 +29,7 @@ table class="table table-bordered"
     th Всего минут собрано:
     th Всего сорано денег для 1minute:
   tr
-    td=@total[:money]
-    td=@total[:min]
-    td=@total[:service_fee]
+    td=Event.sum(:current_money)
+    td=User.sum(:minutes)
+    td=Event.sum(:current_service_fee)
 

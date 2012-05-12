@@ -31,12 +31,12 @@ class Activity < ActiveRecord::Base
       t.save
     end
 
-    rel = money / sum_money
+    rel = money / (sum_money + sum_service_fee)
 
     ev.each do |k, v|
       event = Event.find(k)
       event.current_money += v[:money] * rel
-      event.current_min   += v[:minutes] * rel
+      event.current_min   += v[:minutes]
       event.current_service_fee += v[:service_fee] * rel
       event.save
     end
