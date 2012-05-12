@@ -1,29 +1,30 @@
 .promo-slider {
 	text-align: center;
 	font-size: 0;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	height: 369px;
 }
 .promo-slider .slides_container {
 	margin-bottom: -18px;
 	padding-bottom: 29px;
 	border-bottom: 1px solid #69b5db
 }
-.slides_container {
-	width:520px;
+.promo-slider .slides_container {
+	width:519px;
 	height: 320px;
 	overflow:hidden;
 	position:relative;
 /* 	display:none; */
 }
 
-.slides_container div.slide {
+.promo-slider .slides_container div.slide {
 	width:520px;
 	height:321px;
 	display:block;
 }
 
 .promo-slider .next,.promo-slider .prev {
-	background: url(../images/slider-arrows.png) no-repeat 0 0;	
+	background: url(slider-arrows.png) no-repeat 0 0;	
 	width:15px;
 	height:37px;
 	display:inline-block;
@@ -34,6 +35,7 @@
 	margin: 0 -7px;
 	position: relative;
 	opacity: 0.7;
+	top: -1px;
 	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
 }
 
@@ -53,19 +55,19 @@
 	background-position: right 0;
 }
 
-.pagination {
+.promo-slider .pagination {
 	text-align: center; display: inline-block; *display: inline; zoom: 1;
 	font-size: 0;
 	position: relative; 
 	z-index: 10;
 	top: 10px;
-	background: #0a80cf;
+	background: #0a80cf url(noise-promo.png) repeat;
 	padding: 0 13px;
 	margin: 0 -13px;
 	vertical-align: top
 }
 
-.pagination li {
+.promo-slider .pagination li {
 	display: inline-block; 
 	*display: inline;
 	zoom: 1;
@@ -73,22 +75,37 @@
 	vertical-align: top
 }
 
-.pagination li a {
+.promo-slider .pagination li a {
 	display:inline-block;
 	*display: inline;
 	zoom: 1;
-	background:#0a80cf url(../images/slider-points.png) no-repeat right 0;
+	background: url(slider-points.png) no-repeat right 0;
 	width:17px;
 	height:17px;
 	overflow:hidden;
 	text-indent: -99999px
 }
 
-.pagination li.current a {
+.promo-slider .pagination li.current a {
 	background-position:0 0;
 }
 
-.caption {
+.promo-slider  .caption {
 	display: none
 
+}
+
+.popup-slider .popup-slide {height: 644px}
+.popup-slider .pagination {display: none}
+.popup-slider .prev {width: 71px; height: 71px; background: url(popup-controls.png) no-repeat 0 0; position: absolute; left: -36px; top: 143px; text-indent: -9999px; overflow: hidden; z-index: 100}
+	.popup-slider .prev:hover {background-position: 0 bottom}
+.popup-slider .next {width: 71px; height: 71px; background: url(popup-controls.png) no-repeat -71px 0; position: absolute; right: -36px; top: 143px; text-indent: -9999px; overflow: hidden; z-index: 100}
+	.popup-slider .next:hover {background-position: -71px bottom}
+	
+.popup-slider .slides_container {
+	width:862px;
+	height: 644px;
+	overflow:hidden;
+	position:relative;
+	display:block;
 }

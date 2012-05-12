@@ -84,7 +84,7 @@
 .full-block.grey
   .full-content
     .main-width
-      .operations.ta-justify
+      .operations
         - Activity.all.each do |activity|
           - unless activity.done?(current_user)
             .operation

@@ -52,10 +52,10 @@
             /form[action="" method="post"]
             = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
               .line
-                = f.text_field :email, class: 'i-text', title: "Email"
+                = f.text_field :email, class: 'i-text', title: "Email", size: nil
                 /input.i-text[type="text" title="Email"]
               .line
-                = f.password_field :password, class: 'i-text i-text-short', title: "Пароль"
+                = f.password_field :password, class: 'i-text i-text-short', title: "Пароль", size: nil
                 /input.i-text.i-text-short[type="password" title="Пароль"]
                 = f.submit 'Войти', class: 'btn-login'
                 /input.btn-login[type="submit" value="Войти"]
