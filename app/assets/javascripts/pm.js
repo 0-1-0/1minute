@@ -45,7 +45,6 @@
 		"	left: 0;" +
 		"	width: 100%;" +
 		"	text-align: center;" +
-		"	z-index: 100;" +
 		"	" + opacitee +
 		"}"
 	);
