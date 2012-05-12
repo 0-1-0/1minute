@@ -54,9 +54,9 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                 li
                   a[href=""]
                     | FAQ
-                - if user_signed_in? && current_user.is_admin?
-                  li= link_to 'Выйти', destroy_user_session_path, method: :delete
-                  li= link_to 'Статистика', :controller => :statistics, :action => :show
+                /- if user_signed_in? && current_user.is_admin?
+                li= link_to 'Выйти', destroy_user_session_path, method: :delete
+                li= link_to 'Статистика', :controller => :statistics, :action => :show
             .user-block-border
               - if user_signed_in?
                 .user-block
