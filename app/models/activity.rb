@@ -22,7 +22,7 @@ class Activity < ActiveRecord::Base
       sum_money   += t.money
       sum_service_fee += t.service_fee
 
-      ev[t.event_id] = {minutes: 0, money: 0.0} unless ev[t.event_id]
+      ev[t.event_id] = {minutes: 0, money: 0.0, service_fee: 0.0} unless ev[t.event_id]
       ev[t.event_id][:minutes] += t.minutes
       ev[t.event_id][:money]   += t.money
       ev[t.event_id][:service_fee] += t.service_fee
