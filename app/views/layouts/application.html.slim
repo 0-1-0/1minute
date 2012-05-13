@@ -11,6 +11,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = javascript_include_tag "http://widgets.twimg.com/j/2/widget.js"
     = javascript_include_tag "http://vkontakte.ru/js/api/share.js?11"
+    = javascript_include_tag "http://platform.twitter.com/widgets.js"
     = javascript_include_tag "application"
     javascript:
       FB.init({
@@ -127,6 +128,15 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                     }
                   }).render().setUser('1minuteru').start();
             .invite-bl.invite-bl-long
+              javascript:
+                document.write(VK.Share.button({title: '1 Minute - Твоя минута на добро', description: 'Удели минуту своего времени и помоги детям получить подарки на новый год.', image: 'http://1minute.ru/images/logo.png', noparse: true},{type: "button", text: "Поделиться"}));
+
+              /a[href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"]
+                Tweet 
+              /a[class="odkl-klass-stat" href="http://1minute.ru/" onclick="ODKL.Share(this);return false;"] 
+                span
+                  0
+        
 
     .footer
       .main-width
