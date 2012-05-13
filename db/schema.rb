@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20120513214949) do
     t.float    "conv_course",         :default => 1.0
     t.string   "ex_name"
     t.float    "current_service_fee", :default => 0.0
-    t.integer  "sorting_order",       :default => 0
+    t.integer  "sorting_order",       :default => 1
     t.string   "convert_name"
   end
 

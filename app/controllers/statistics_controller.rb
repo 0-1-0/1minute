@@ -1,5 +1,5 @@
 class StatisticsController < ApplicationController
   def show
-    @events = Event.all
+    @events = Event.find(:all, :order => :sorting_order)
   end
 end
