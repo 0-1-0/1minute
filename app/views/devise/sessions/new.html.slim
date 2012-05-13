@@ -19,13 +19,13 @@
       .promo-slider
         .slides_container
           div
-            = image_tag 'content/photo-1.png', size: '519x321', alt: 'photo-1'
+            = image_tag 'content/slide_1.png', size: '520x400', alt: 'photo-1'
             /img[src="/" alt="photo-1" width="519" height="321"]
           div
-            = image_tag 'content/photo-2.png', size: '519x321', alt: 'photo-2'
+            = image_tag 'content/slide_2.png', size: '520x400', alt: 'photo-2'
             /img[src="/content/photo-2.png" alt="photo-1" width="519" height="321"]
           div
-            = image_tag 'content/photo-3.png', size: '519x321', alt: 'photo-3'
+            = image_tag 'content/slide_3.png', size: '520x400', alt: 'photo-3'
             /img[src="/content/photo-3.png" alt="photo-1" width="519" height="321"]
       .promo-caption
         .h3
@@ -49,9 +49,10 @@
               = image_tag 'facebook.png', size: '103x31', alt: 'login-facebook'
             = link_to omniauth_authorize_path(resource_name, 'vkontakte') do
               = image_tag 'vkontakte.png', size: '107x31', alt: 'login-vkontakte'
-
-            = link_to omniauth_authorize_path(resource_name, 'facebook') do
+            = link_to omniauth_authorize_path(resource_name, 'twitter') do
               = image_tag 'twitter.png', size: '31x31', alt: 'login-twitter'
+
+
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
               = image_tag 'odnoklassniki.png', size: '31x31', alt: 'login-odnoklassniki'
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
