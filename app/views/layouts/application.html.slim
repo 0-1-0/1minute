@@ -7,11 +7,14 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     meta[name="viewport" content="width=1020"]
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
+    link[rel="stylesheet" type="text/css" href="http://stg.odnoklassniki.ru/share/odkl_share.css"]
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = javascript_include_tag "http://widgets.twimg.com/j/2/widget.js"
     = javascript_include_tag "http://vkontakte.ru/js/api/share.js?11"
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
+    = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
+    = javascript_include_tag "http://apis.google.com/js/plusone.js"
     = javascript_include_tag "application"
     javascript:
       FB.init({
@@ -96,10 +99,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
               .invite-bl 
                 #vk_groups[style='float:left']
                 javascript:
-                  VK.Widgets.Group("vk_groups", {mode: 0, width: "250", height: "300"}, 24906490);
-              .invite-bl 
-                iframe[src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2F1minuteru%2F259882880729879&amp;width=250&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px; " allowTransparency="true"]
-    
+                  VK.Widgets.Group("vk_groups", {mode: 0, width: "250", height: "300"}, 24906490);    
               .invite-bl
                 javascript:
                   new TWTR.Widget({
@@ -127,15 +127,31 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                       behavior: 'all'
                     }
                   }).render().setUser('1minuteru').start();
-            .invite-bl.invite-bl-long
-              javascript:
-                document.write(VK.Share.button({title: '1 Minute - Твоя минута на добро', description: 'Удели минуту своего времени и помоги детям получить подарки на новый год.', image: 'http://1minute.ru/images/logo.png', noparse: true},{type: "button", text: "Поделиться"}));
 
-              /a[href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"]
+              .invite-bl 
+                iframe[src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2F1minuteru%2F259882880729879&amp;width=250&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px; " allowTransparency="true"]
+
+            .invite-bl.invite-bl-long
+              .social-button
+                javascript:
+                  document.write(VK.Share.button({title: '1 Minute - Твоя минута на добро', description: 'Удели минуту своего времени и помоги детям получить подарки на новый год.', image: 'http://1minute.ru/images/logo.png', noparse: true},{type: "button", text: "Поделиться"}));
+
+              
+              .social-button[style="margin-left:10px"]
+                fb:like[send="false" layout="button_count" width="88" show_faces="true"]
+
+              .social-button
+                a[href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"]
                 Tweet 
-              /a[class="odkl-klass-stat" href="http://1minute.ru/" onclick="ODKL.Share(this);return false;"] 
-                span
-                  0
+
+              .social-button
+                g:plusone[size="medium"]
+              
+              .social-button
+                a[class="odkl-klass-stat" href="http://1minute.ru/" onclick="ODKL.Share(this);return false;" style="float:left"] 
+                  span
+                    0
+
         
 
     .footer
