@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513213647) do
+ActiveRecord::Schema.define(:version => 20120513214949) do
 
   create_table "activities", :force => true do |t|
     t.string   "activity_type"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120513213647) do
     t.string   "ex_name"
     t.float    "current_service_fee", :default => 0.0
     t.integer  "sorting_order",       :default => 0
+    t.string   "convert_name"
   end
 
   add_index "events", ["name"], :name => "index_events_on_name"
