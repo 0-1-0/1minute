@@ -160,11 +160,21 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.fullaction .fullaction-info {border-bottom: 1px solid #d4d4d4; border-top: 1px solid #ffffff; padding-top: 8px; padding-bottom: 12px}
 					.fullaction .fullaction-info-last {border-bottom: 0; padding-top: 15px;}
 					.fullaction .fullaction-info .scrollable {height: 215px; width: 500px; margin-right: 20px; margin-left: 18px; float: left; position: relative; overflow: hidden;}
-					.fullaction .fullaction-img {overflow: hidden; zoom: 1; text-align: center; height: 215px; line-height: 215px; vertical-align: middle; margin-right: 20px}
-						.fullaction .fullaction-img img {vertical-align: middle;}
+					.fullaction .fullaction-img {overflow: hidden; zoom: 1; text-align: center; height: 215px; line-height: 215px; vertical-align: middle; margin-right: 20px; display:block;}
+						
 					.fullaction .fullaction-info .fullaction-bigimg {float: left; width: 500px; height: 300px; margin: 0 20px 0 18px; }
 					.fullaction .fullaction-info .fullaction-do {overflow: hidden; margin-right: 20px; height: 300px; vertical-align: middle; text-align: center}
+					.fullaction .fullaction-img img {
+						vertical-align: middle;
+						padding-top: 50px;
+					}
 
+					.fullaction-img span.wraptocenter span {
+					    display: inline-block;
+					    height: 100%;
+					    width: 1px;
+					    vertical-align:middle;
+					}
 				
 				.textblock {padding-left: 25px; color: #a18c70; padding-right: 25px; }
 					.textblock h3 {color: #28a3f1; font-size: 14px; margin-bottom: 19px}
