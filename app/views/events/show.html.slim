@@ -97,8 +97,7 @@
                   span= activity.name
                   span
                     em
-                      | Действие приносит #{activity.minutes} #{activity.verbose_name}
-                i
+                      | Действие приносит #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
           - else
             .operation.operation-done
               span.operation-img
@@ -113,7 +112,7 @@
                   = image_tag 'good-minutes.png', size: '25x28'
                   /img[src="images/good-minutes.png" alt="good-minutes" width="25" height="28"]
                 span
-                  em Вы подарили #{activity.minutes} #{activity.verbose_name}
+                  em Вы подарили #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
               i
         /.operation
           /span.operation-img
@@ -145,7 +144,7 @@
                   .fullaction-title-right
                     | Действие приносит 
                     strong= activity.minutes
-                    |  #{activity.verbose_name}
+                    |  #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
                 .fullaction-info
                   .scrollable
                     .textblock= activity.description.html_safe

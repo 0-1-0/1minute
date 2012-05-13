@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509174000) do
+ActiveRecord::Schema.define(:version => 20120513213647) do
 
   create_table "activities", :force => true do |t|
     t.string   "activity_type"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20120509174000) do
     t.string   "big_image"
     t.string   "logo_image"
     t.float    "service_fee"
-    t.string   "verbose_name"
     t.integer  "sorting_order", :default => 0
   end
 
