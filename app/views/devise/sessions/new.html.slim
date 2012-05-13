@@ -46,7 +46,16 @@
               | существующего аккаунта или зарегистрироваться
           .login-social
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
-              = image_tag 'login-social.png', size: '306x33', alt: 'login-social'
+              = image_tag 'facebook.png', size: '103x31', alt: 'login-facebook'
+            = link_to omniauth_authorize_path(resource_name, 'vkontakte') do
+              = image_tag 'vkontakte.png', size: '107x31', alt: 'login-vkontakte'
+
+            = link_to omniauth_authorize_path(resource_name, 'facebook') do
+              = image_tag 'twitter.png', size: '31x31', alt: 'login-twitter'
+            = link_to omniauth_authorize_path(resource_name, 'facebook') do
+              = image_tag 'odnoklassniki.png', size: '31x31', alt: 'login-odnoklassniki'
+            = link_to omniauth_authorize_path(resource_name, 'facebook') do
+              = image_tag 'mailru.png', size: '31x31', alt: 'login-mailru'
             /img[src="/login-social.png" alt="login-social" width="306" height="33"]
           .login-form
             /form[action="" method="post"]

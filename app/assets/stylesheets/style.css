@@ -71,7 +71,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			.promo-caption {color: #c8e9e7; word-spacing: -1px; text-align: left}	
 				.promo-caption .h3{color: #c8e9e7; font-size: 16px; font-weight: bold; margin-bottom: 15px; padding-top: 1px}	
 				.promo-caption .p {line-height: 1.45; font-size: 14px}
-
+ .login-social{ margin-left:-1px;}
 			.login-block-wrap {height: 371px; position: relative}
 			.login-block {padding:0 45px 0 20px; color: #fff; position: absolute; bottom: 2px; padding-bottom: 1px; width: 297px; text-align: center}
 				.login-block .login-text {color: #c8e9e7; margin-bottom: 15px; text-align: center; font-size: 12px }
@@ -79,6 +79,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 					.login-block .login-text small{display: block; font-size: 12px; line-height: 1.6}
 				.login-block .login-social {height: 39px; position: relative; left: -1px}
 					.login-block .login-social img {margin-left: -4px}
+					.login-social a {margin-right:3px;}
 				.login-block .login-form {text-align: left; width: 297px}
 					.login-block .login-form .line {margin-bottom: 9px; position: relative; overflow: hidden }
 					.login-block .login-form .line.l-ch {line-height: 22px; padding-top: 1px; padding-right: 4px; text-align: right}
