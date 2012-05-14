@@ -60,13 +60,17 @@
                   .action-progress-bar
                     i[style="width:#{(100*((event.current_min%event.target_minimum).to_f/event.target_minimum.to_f)).to_i}%"]
               .action-br
-                = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
                 - if current_user.is_admin?
-                  = link_to 'Редактировать', edit_event_path(event)
-                  = link_to 'Удалить', event_path(event), :method => :delete, confirm: 'Are you sure?'
+                  #admin-controls[style="margin-bottom:50px"]
+                    #admin-edit
+                      = link_to 'Редактировать', edit_event_path(event)
+                    #admin-delete
+                      = link_to 'Удалить', event_path(event), :method => :delete, confirm: 'Are you sure?'
+                = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
         - if current_user.is_admin?
+          br
           = link_to 'Создать новую акцию', new_event_path, :class => 'btn'
           br
-          .btn= link_to 'Создать новое действие', new_activity_path
+          = link_to 'Создать новое действие', new_activity_path
           br
-          .btn= link_to 'К действиям', activities_path
+          = link_to 'К действиям', activities_path
