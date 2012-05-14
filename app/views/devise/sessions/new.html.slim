@@ -32,9 +32,9 @@
             = link_to omniauth_authorize_path(resource_name, 'twitter') do
               .a-social.social-twitter
             
-            /.disabled  
-              a.a-social.social-odno href=""
-              a.a-social.social-mail href=""
+            
+            a.a-social.social-odno href=""
+            a.a-social.social-mail href=""
           .login-form
             = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
               .line
@@ -49,5 +49,48 @@
                 a[href=""]
                   | Забыли пароль?
           .login-new
-            = link_to  'Зарегистрироваться', new_registration_path(resource_name)
-            | , если у Вас еще нет аккаунта на 1minute 
+            a[href="#"] 
+              | Зарегистрироваться , если у Вас еще нет аккаунта на 1minute 
+            /= link_to  'Зарегистрироваться', new_registration_path(resource_name)
+              
+
+
+.pelena
+.popup.popup-login
+  .popup-content
+    span.popup-close
+    .popup-form
+      =form_for(user_registration_path, :url => user_registration_path) do |f|
+        .popup-form-title Присоеденяйся к добрым людям
+        .line
+          label Введите свою электронную почту и придумайте пароль
+        .line
+          = f.text_field :email, :required => true, class: 'i-text', title: "Email"
+          /input.i-text title="EMAIL" type="text"
+        .line
+          = f.text_field :password, :required => true, class: 'i-text', title: 'Пароль'
+          /input.i-text.pad-big title="ПАРОЛЬ" type="text"
+          = f.submit "Зарегистрироваться", class: "i-submit btn-login"
+    .line
+      label.with-bg
+        span Вы можете зарегистрироваться через аккаунт другой социальной сети
+    .login-social
+      = link_to omniauth_authorize_path(resource_name, 'facebook') do
+        .a-social.social-fb
+      = link_to omniauth_authorize_path(resource_name, 'vkontakte') do
+        .a-social.social-vk
+      = link_to omniauth_authorize_path(resource_name, 'twitter') do
+        .a-social.social-twitter
+      
+      
+      a.a-social.social-odno href=""
+      a.a-social.social-mail href=""
+
+javascript:
+  $('.popup').hide();
+  $('.pelena').hide();
+
+  $('.login-new').click(function(){
+    $('.pelena').show();
+    $('.popup').show();
+  });
