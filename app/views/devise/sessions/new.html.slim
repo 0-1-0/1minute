@@ -1,79 +1,51 @@
-/<h2>Sign in</h2>
-
-/<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-/  <div class="inputs">
-/    <%= f.input :email, :required => false, :autofocus => true %>
-/    <%= f.input :password, :required => false %>
-/    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-/  </div>
-
-/  <div class="actions">
-/    <%= f.button :submit, "Sign in" %>
-/  </div>
-/<% end %>
-
-/<%= render "links" %>
 .promo-block
   .main-width
     .promo-left
       .promo-slider
         .slides_container
           div
-            = image_tag 'content/slide_1.png', size: '520x400', alt: 'photo-1'
-            /img[src="/" alt="photo-1" width="519" height="321"]
+            = image_tag "content/slide_1.png"
           div
-            = image_tag 'content/slide_2.png', size: '520x400', alt: 'photo-2'
-            /img[src="/content/photo-2.png" alt="photo-1" width="519" height="321"]
+            = image_tag "content/slide_2.png"
           div
-            = image_tag 'content/slide_3.png', size: '520x400', alt: 'photo-3'
-            /img[src="/content/photo-3.png" alt="photo-1" width="519" height="321"]
+            = image_tag "content/slide_3.png"
       .promo-caption
-        .h3
-          | Теперь помогать может каждый. Начните прямо сейчас!
+        .h3 Теперь помогать может каждый. Начните прямо сейчас!
         .p
-          | Нужна всего 1 минута, чтобы помочь: выбери акцию одного из благотворительных фондов, соверши несколько простых действий от наших рекламодателей. Все! 
-          br
-          | Деньги за выполненные действия перечислятся на доброе дело.
+          | Нужна всего 1 минута, чтобы помочь: выбери акцию одного из благотворительных фондов, соверши несколько простых действий от наших рекламодателей. Все!
+            br
+          | за выполненные действия перечислятся на доброе дело.
     .promo-right
       .login-block-wrap
         .login-block
           .login-text
-            .title
-              | Присоедениться к добрым людям
+            .title Присоедениться к добрым людям
             small
               | Чтобы начать помогать нужно войти с помощью
               br
               | существующего аккаунта или зарегистрироваться
           .login-social
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
-              = image_tag 'facebook.png', size: '103x31', alt: 'login-facebook'
+              .a-social.social-fb
             = link_to omniauth_authorize_path(resource_name, 'vkontakte') do
-              = image_tag 'vkontakte.png', size: '107x31', alt: 'login-vkontakte'
+              .a-social.social-vk
             = link_to omniauth_authorize_path(resource_name, 'twitter') do
-              = image_tag 'twitter.png', size: '31x31', alt: 'login-twitter'
-
-
-            = link_to omniauth_authorize_path(resource_name, 'facebook') do
-              = image_tag 'odnoklassniki.png', size: '31x31', alt: 'login-odnoklassniki'
-            = link_to omniauth_authorize_path(resource_name, 'facebook') do
-              = image_tag 'mailru.png', size: '31x31', alt: 'login-mailru'
-            /img[src="/login-social.png" alt="login-social" width="306" height="33"]
+              .a-social.social-twitter
+            
+            /.disabled  
+              a.a-social.social-odno href=""
+              a.a-social.social-mail href=""
           .login-form
-            /form[action="" method="post"]
             = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
               .line
-                = f.text_field :email, class: 'i-text', title: "Email", size: nil
-                /input.i-text[type="text" title="Email"]
+                = f.text_field :email, class: 'i-text', title: "Email"
               .line
-                = f.password_field :password, class: 'i-text i-text-short', title: "Пароль", size: nil
-                /input.i-text.i-text-short[type="password" title="Пароль"]
+                = f.password_field :password, class: 'i-text i-text-short', title: "Пароль"
                 = f.submit 'Войти', class: 'btn-login'
-                /input.btn-login[type="submit" value="Войти"]
               .line.l-ch
                 label
                   = f.check_box :remember_me, class: 'i-ch'
-                  /input.i-ch[type="checkbox"]
-                  |  Запомнить меня 
+                  | Запомнить меня
                 a[href=""]
                   | Забыли пароль?
           .login-new

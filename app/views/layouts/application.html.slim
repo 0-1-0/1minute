@@ -1,13 +1,15 @@
-doctype
-html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
+doctype Strict
+html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
   head
     title 1minute
-    meta[http-equiv="Content-Type" content="text/html;charset=UTF-8"]
-    meta[http-equiv="X-UA-Compatible" content="IE=EmulateIE8"]
-    meta[name="viewport" content="width=1020"]
+    meta[content="text/html;charset=UTF-8" http-equiv="Content-Type"]
+    meta[content="IE=EmulateIE8" http-equiv="X-UA-Compatible"]
+    meta[content="width=1020" name="viewport"]    
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
     link[rel="stylesheet" type="text/css" href="http://stg.odnoklassniki.ru/share/odkl_share.css"]
+
+    = javascript_include_tag "application"
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = javascript_include_tag "http://widgets.twimg.com/j/2/widget.js"
@@ -15,7 +17,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
     = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
     = javascript_include_tag "http://apis.google.com/js/plusone.js"
-    = javascript_include_tag "application"
+
     javascript:
       FB.init({
         appId  : "#{ENV['FB_APP_ID']}",
@@ -26,8 +28,8 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
       VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
       window.fb_map = {}
     = csrf_meta_tags
+
   body
-    #fb-root
     javascript:
       $(document).ready(function() {
         (function(d, s, id) {
@@ -38,14 +40,14 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
       });
-    .background.inside-page
+
+    .background
       .main-div
         .header
           .main-width
             .logo
               a[href="/"]
                 = image_tag 'logo.png', alt: 'logo', size: '200x44'
-                /img[src="images/logo.png" alt="logo" width="200" height="44"]
             .header-menu
               ul
                 li
@@ -61,37 +63,32 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                   a[href=""]
                     | FAQ
                 /- if user_signed_in? && current_user.is_admin?
-                li= link_to 'Выйти', destroy_user_session_path, method: :delete
+                li= link_to 'Выйти', destroy_user_session_path
                 li= link_to 'Статистика', :controller => :statistics, :action => :show
-            .user-block-border
-              - if user_signed_in?
-                .user-block
-                  span.user-name= current_user.nickname || current_user.email
-                  span.user-progress
-                    i[style="width:#{current_user.minutes%100}%"]
+
         .sub-header
           .main-width
             .sub-header-left
-              .slogan
-                | ТВОЯ МИНУТА НА ДОБРО
-              .sub-slogan
-                | Потрать минуту. Выполни действия. Помоги доброму делу.
+              .slogan ТВОЯ МИНУТА НА ДОБРО
+              .sub-slogan Потрать минуту. Выполни действия. Помоги доброму делу.
             .sub-header-right
               .good-blocks.ta-justify
                 .good-block.good-minutes
-                  .title
-                    | Добрые минуты
+                  .title Добрые минуты
                   .counter
                     = User.sum(:minutes)
                   span.help-icon
+                    span.tooltip
+                      span.tooltip-content Общее количество добрых минут, подаренных пользователями 1minute.ru с мая 2012 года
                 .good-block.good-people
-                  .title
-                    | Добрые люди
+                  .title Добрые люди
                   .counter
                     = User.count
                   span.help-icon
+                    span.tooltip
+                      span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
         = yield
-
+        
         .invite-block
           .main-width
             .invite-title РАССКАЖИ ДРУЗЬЯМ О НАШЕМ ПРОЕКТЕ
@@ -152,33 +149,10 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"]
                 a[class="odkl-klass-stat" href="http://1minute.ru/" onclick="ODKL.Share(this);return false;" style="float:left"] 
                   span
                     0
-
-        
-
     .footer
       .main-width
-        /.footer-left
-          .copyright
-            | При любом использовании материалов сайта гиперссылка на 1minute.ru 
-            br
-            | и явное указание первоисточника обязательна. 1minute © 2011
-          .footer-menu
-            ul
-              li
-                a[href=""]
-                  | Команда
-              li
-                a[href=""]
-                  | Блог
-              li
-                a[href=""]
-                  | Партнеры
-              li
-                a[href=""]
-                  | FAQ
         .footer-right
           .contacts
-            a.contacts-item.mail[href="mailto:aa@aa.aa"]
-              | aa@aa.aa
-            span.contacts-item.phone
-              | +7 (495) 789 35 76
+            a.contacts-item.mail href="mailto:aa@aa.aa"
+            span.contacts-item.phone +7 (495) 789 35 76
+    /! <script type="text/javascript" src="js/pm.js"></script>

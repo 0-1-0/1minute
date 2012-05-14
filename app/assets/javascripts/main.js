@@ -59,6 +59,15 @@ $(document).ready(function(){
 	
 	reInitScroll();
 	
+	$('.help-icon').hover(
+		function(){
+			$(this).find('.tooltip').stop(true, true).fadeIn();
+		},
+		function(){
+			$(this).find('.tooltip').hide();
+		}
+	)
+	
 /* 	$('.popup').hide().css({'visibility':'visible'}) */
 	
 /* 	$('.good-block .counter').append('<span/>') */

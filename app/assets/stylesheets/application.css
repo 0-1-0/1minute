@@ -11,7 +11,7 @@
  *= require_self
  * require_tree .
  *= require reset
- *= require style
+ *= require style1
  *= require slides
  *= require jscrollpane
 */
