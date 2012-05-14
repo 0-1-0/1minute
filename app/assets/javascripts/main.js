@@ -13,25 +13,28 @@ $(document).ready(function(){
 	}
 
 	$('.promo-slider').slides({
-				preload: false,
-				play: 5000,
-				pause: 2500,
-				hoverPause: true,
-				generateNextPrev: 1,
-				effect : 'slide'
-			});
-			
-	$('.popup-slider').slides({
-				preload: false,
-				play: 0,
-				pause: 0,
-				hoverPause: true,
-				generateNextPrev: 1,
-				effect : 'slide',
-				animationComplete : function(){
-					reInitScroll();
-				}
-			});		
+		preload: false,
+		play: 5000,
+		pause: 2500,
+		hoverPause: true,
+		generateNextPrev: 1,
+		effect : 'slide'
+	});
+	
+	initPopupSlides = function(){		
+		$('.popup-slider').slides({
+			preload: false,
+			play: 0,
+			pause: 0,
+			hoverPause: true,
+			generateNextPrev: 1,
+			effect : 'slide',
+			animationComplete : function(){
+				reInitScroll();
+			}
+		});		
+	}
+	initPopupSlides();
 			
 	$('.login-block input.i-ch').ezMark(); 
 	
@@ -47,13 +50,48 @@ $(document).ready(function(){
 	$('.pelena, .popup .popup-close').live('click',function(){
 		$('.popup').fadeOut();
 		$('.pelena').hide();
-		activateHearth();
 	})
 	
+	
 	$('.operation a').live('click', function(){
+		//go to clicked operation in popup
+		clickedPos = $('.operation:not(.operation-done)').index($(this).parent());
+		$('.popup-slider .pagination li').eq(clickedPos).find('a').click();
+		$('.popup-slider .slides_control').stop(true,true);
+		
+		
 		$('.pelena').show();
 		$('.popup').fadeIn();
+
 		reInitScroll();
+		return false;
+	})
+	
+	$('.btn-do').live('click', function(){
+		$curSlide = $(this).parents('.popup-slide').eq(0); 
+		donePos = $curSlide.index();
+		console.log(donePos);
+		$.ajax({
+			url:'ajax.html',
+			success: function(data){
+				$curOperation = $('.operation:not(.operation-done)').eq(donePos);
+				$curOperation.html(data);
+				$curOperation.addClass('operation-done');
+				$('.popup').fadeOut();
+				$('.pelena').hide();
+		
+				$curSlide.remove();
+				
+				$('.popup-slider .next, .popup-slider .prev, .popup-slider .pagination').remove();
+				$('.popup-slider .popup-slide').removeAttr('style');
+				reHtml = $('.popup-slider .slides_control').html();
+				$('.popup-slider .slides_container').html(reHtml);
+				
+				
+				
+				initPopupSlides();
+			}
+		})
 		return false;
 	})
 	

@@ -1,56 +1,3 @@
-/- model_class = @event.class
-/h1=t '.title', :default => model_class.model_name.human
-
-/p
-/  strong= model_class.human_attribute_name(:name) + ':'
-/  br
-/  = @event.name
-/p
-/  strong= model_class.human_attribute_name(:description) + ':'
-/  br
-/  = @event.description
-/p
-  /strong= model_class.human_attribute_name(:image) + ':'
-  /br
-  /= image_tag @event.image_url
-/- if current_user.is_admin?
-  /p
-    /strong= model_class.human_attribute_name(:target_minimum) + ':'
-    /br
-    /= @event.target_minimum
-  /p
-    /strong= model_class.human_attribute_name(:current_min) + ':'
-    /br
-    /= @event.current_min
-  /p
-    /strong= model_class.human_attribute_name(:current_money) + ':'
-    /br
-    /= @event.current_money
-
-  /.form-actions
-    /= link_to t('.back', :default => t("helpers.links.back")), events_path, :class => 'btn'
-    /'
-    /= link_to t('.edit', :default => t("helpers.links.edit")), edit_event_path(@event), :class => 'btn'
-    /'
-    /= link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(@event), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
-/- else
-  /h3 Activities
-
-  /table class="table table-striped"
-    /thead
-      /tr
-        /th= model_class.human_attribute_name(:id)
-        /th= model_class.human_attribute_name(:image)
-        /th= model_class.human_attribute_name(:description)
-        /th=t '.actions', :default => t("helpers.actions")
-    /tbody
-      /- Activity.all.each do |activity|
-        /tr
-          /td= link_to activity.id, activity_path(activity)
-          /td= image_tag activity.image_url
-          /td= activity.description
-          /td= link_to 'do it', do_it_activity_path(activity, event: @event), target: '_blank'
-
 .full-block
   .full-content
     .main-width
@@ -79,15 +26,14 @@
                 /| Сменить акцию
   .full-title-border
     .full-title
-      .main-width
-        | ВЫБЕРИ ДЕЙСТВИЕ
+      .main-width ВЫБЕРИ ДЕЙСТВИЕ
 .full-block.grey
   .full-content
     .main-width
-      .operations
+      .operations.ta-justify
         - Activity.all.each do |activity|
           - unless activity.done?(current_user)
-            .operation
+            .operation[activity_id="#{activity.id}"]
               = link_to '#' do
                 span.operation-img
                   = image_tag activity.image_url, alt: "operation-img", size: '300x200'
@@ -98,8 +44,9 @@
                   span
                     em
                       | Действие приносит #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
+                i
           - else
-            .operation.operation-done
+            .operation.operation-done[activity_id="#{activity.id}"]
               span.operation-img
                 = image_tag activity.image_url, alt: "operation-img", size: '300x200'
               span.operation-done
@@ -135,7 +82,7 @@
       .slides_container
         - Activity.find(:all, :order => :sorting_order).each do |activity|
           - unless activity.done?(current_user)
-            .popup-slide
+            .popup-slide[activity_id="#{activity.id}"]
               .fullaction
                 .fullaction-title
                   .fullaction-title-left.p-f-left
@@ -169,9 +116,10 @@
                         return VK.Widgets.Like("#{activity.id}_like", {type: "mini", pageUrl:"#{activity.data.html_safe}"});
                       });
                   - elsif activity.activity_type == "facebook like"
-                    .fb-like data-href=activity.data.html_safe data-send="true" data-width="450" data-show-faces="true"
-                    javascript:
-                      fb_map["#{activity.data.html_safe}"] = #{activity.id};
+                    .fullaction-do
+                      .fb-like data-href=activity.data.html_safe data-send="true" data-width="450" data-show-faces="true"
+                      javascript:
+                        fb_map["#{activity.data.html_safe}"] = #{activity.id};
 javascript:
   FB.Event.subscribe('edge.create',
     function(response) {
