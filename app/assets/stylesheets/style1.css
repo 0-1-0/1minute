@@ -43,7 +43,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			
 			.header .user-block-border {border-left: 1px solid #dfdfdf; overflow: hidden; zoom: 1}
 			.header .user-block {padding: 15px 0 15px 26px; border-left: 1px solid #fff; overflow: hidden; zoom: 1}
-				.header .user-block .user-name{color: #a28c70; margin-right: 5px; max-width: 155px; overflow: hidden; zoom: 1}
+				.header .user-block .user-name{color: #a28c70; margin-right: 3px; max-width: 150px; overflow: hidden; zoom: 1; white-space: nowrap; display: inline-block; *display: inline}
 					.header .user-block .user-progress{width: 81px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; background:#bababa url(user-progress-bg.png) repeat-x 0 0; height: 5px; border: 1px solid #c5c5c5; display: inline-block ; *display: inline; zoom: 1; position: relative; top: 1px; padding: 1px 2px; margin-right: 10px}
 						.header .user-block .user-progress i{background: #03e846 url(user-progress-in.png) repeat-x 0 0; height: 5px; display: block; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
 						
@@ -321,4 +321,4 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 .ez-checked { background-position: 0 0 }
 
 
-
+.hidden {display: none}

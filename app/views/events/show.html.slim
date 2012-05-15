@@ -125,6 +125,8 @@
                       });
                   - elsif activity.activity_type == "facebook like"
                     .fullaction-do
+                      a.hidden.btn-do
+                        i
                       .fb-like data-href=activity.data.html_safe data-send="true" data-width="450" data-show-faces="true"
                       javascript:
                         fb_map["#{activity.data.html_safe}"] = #{activity.id};
@@ -132,7 +134,8 @@ javascript:
   FB.Event.subscribe('edge.create',
     function(response) {
       $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
-        alert('Спасибо!');
+        alert('#{@event.id}');
+        $('.popup-slider').find('.popup-slide[activity_id='+#{@event.id}+' .btn-do]').click();
       });
     }
   );
