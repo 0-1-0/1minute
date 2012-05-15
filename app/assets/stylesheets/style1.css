@@ -28,6 +28,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 
 
 .background {background: #d5d5d5; min-height: 100%;}
+.background.inside-page {background: #fff}
 	.main-div {padding-bottom: 204px;}
 		.main-width {width: 916px; margin: auto; padding: 0 40px}
 		
@@ -199,12 +200,13 @@ hearth.png) no-repeat 0 0;width: 118px;height: 118px; display: block; margin: au
 
 					.operation .operation-done {position: absolute; left: 0; top: 0; background: url(
 
-operation-pelena.png) no-repeat 0 0; width: 300px; height: 200px; padding-top: 40px}
+operation-pelena.png) no-repeat 0 0; width: 300px; height: 200px; padding-top: 40px; display: none}
 						.operation.operation-done a {cursor: default}
 						.operation .operation-done span{color: #c8e9e7; padding: 0 10px; display: block; text-align: center; padding-bottom: 5px; }
 							.operation .operation-done span big {display: block; font-size: 16px; margin-top: -3px; }
 							.operation .operation-done span img {margin: 15px 0 12px}
 						.operation .operation-done span em {font-size: 13px; font-style: italic}
+					.operation.operation-done .operation-done {display: block}
 
 					.operation .operation-impossible {position: absolute; left: 0; top: 0; background: url(
 

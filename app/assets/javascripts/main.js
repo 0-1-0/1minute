@@ -70,13 +70,12 @@ $(document).ready(function(){
 	$('.btn-do').live('click', function(){
 		$curSlide = $(this).parents('.popup-slide').eq(0); 
 		doneId = $curSlide.attr('activity_id');
-		console.log(doneId);
-		$.ajax({
-			url:'ajax.html',
-			success: function(data){
+
 				$curOperation = $('.operation:not(.operation-done)[activity_id='+doneId+']');
-				$curOperation.html(data);
+				$curOperation.find('.operation-hover').remove();
 				$curOperation.addClass('operation-done');
+				$curOperation.html($curOperation.find('a').html())
+
 				$('.popup').fadeOut();
 				$('.pelena').hide();
 		
@@ -86,13 +85,10 @@ $(document).ready(function(){
 				$('.popup-slider .popup-slide').removeAttr('style');
 				reHtml = $('.popup-slider .slides_control').html();
 				$('.popup-slider .slides_container').html(reHtml);
-				
-				
-				
+
 				initPopupSlides();
-			}
-		})
-		return false;
+
+
 	})
 	
 	reInitScroll();

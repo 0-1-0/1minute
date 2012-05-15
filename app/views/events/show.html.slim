@@ -44,6 +44,14 @@
                   span
                     em
                       | Действие приносит #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
+                span.operation-done
+                  span Спасибо.
+                  span
+                    big Действие совершено
+                  span
+                    = image_tag "good-minutes.png", alt: "good-minutes", size: "28x25"
+                  span
+                    em Вы подарили #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
                 i
           - else
             .operation.operation-done[activity_id="#{activity.id}"]
