@@ -59,8 +59,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                   a[href=""]
                     | Блог
                 li
-                  a[href=""]
-                    | Партнеры
+                  = link_to "Партнеры", page_path("partners")
                 li
                   a[href=""]
                     | FAQ
@@ -74,34 +73,35 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                     i[style="width:#{current_user.minutes%100}%"]
                   = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
 
-        .sub-header
-          .main-width
-            .sub-header-left
-              .slogan ТВОЯ МИНУТА НА ДОБРО
-              .sub-slogan Потрать минуту. Выполни действия. Помоги доброму делу.
-            .sub-header-right
-              .good-blocks.ta-justify
-                .good-block.good-minutes
-                  .title Добрые минуты
-                  .counter
-                    = User.sum(:minutes)
-                  span.help-icon
-                    span.tooltip
-                      span.tooltip-content Общее количество добрых минут, подаренных пользователями 1minute.ru с мая 2012 года
-                .good-block.good-people
-                  .title Добрые люди
-                  .counter
-                    = User.count
-                  span.help-icon
-                    span.tooltip
-                      span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
+        - if !@current_controller == 'pages'
+          .sub-header
+            .main-width
+              .sub-header-left
+                .slogan ТВОЯ МИНУТА НА ДОБРО
+                .sub-slogan Потрать минуту. Выполни действия. Помоги доброму делу.
+              .sub-header-right
+                .good-blocks.ta-justify
+                  .good-block.good-minutes
+                    .title Добрые минуты
+                    .counter
+                      = User.sum(:minutes)
+                    span.help-icon
+                      span.tooltip
+                        span.tooltip-content Общее количество добрых минут, подаренных пользователями 1minute.ru с мая 2012 года
+                  .good-block.good-people
+                    .title Добрые люди
+                    .counter
+                      = User.count
+                    span.help-icon
+                      span.tooltip
+                        span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
         
           - if user_signed_in? && current_user.is_admin?
             = link_to 'Статистика', :controller => :statistics, :action => :show
 
         = yield
         
-        - if !user_signed_in?
+        - if !user_signed_in? && !@current_controller == 'pages'
           .invite-block
             .main-width
               .invite-title РАССКАЖИ ДРУЗЬЯМ О НАШЕМ ПРОЕКТЕ

@@ -105,6 +105,9 @@
   border-right: 5px solid #fff !important;
   top: -5px;
   left: 1px;  
+  overflow: hidden; zoom: 1;
+  
+  text-indent: -99999px;
   }
 .social-balloon {
   position: absolute;

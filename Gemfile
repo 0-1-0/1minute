@@ -39,6 +39,10 @@ gem 'carrierwave'
 gem 'fog'
 
 
+#статические страницы
+gem "high_voltage"
+
+
 gem 'thin'
 
 # делаем проще разработку
