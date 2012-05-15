@@ -21,13 +21,21 @@ $(document).ready(function(){
 		effect : 'slide'
 	});
 
-	window.addEventListener("load",function() {
-		// Set a timeout...
-		setTimeout(function(){
-			// Hide the address bar!
-			window.scrollTo(0, 1);
-		}, 0);
-	});
+function hideAddressBar()
+{
+  if(!window.location.hash)
+  {
+      if(document.height < window.outerHeight)
+      {
+          document.body.style.height = (window.outerHeight + 50) + 'px';
+      }
+
+      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+  }
+}
+
+window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+window.addEventListener("orientationchange", hideAddressBar );
 
 	
 	initPopupSlides = function(){		
