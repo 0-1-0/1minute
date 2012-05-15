@@ -62,12 +62,18 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
 
 
             - if user_signed_in?
+              - if current_user.is_admin?
+                span
+                  = link_to 'Статистика', :controller => :statistics, :action => :show
+                  = link_to 'Сбросить все действия', :controller => :transactions, :action => :reset_all
               .user-block-border
                 .user-block
                   span.user-name=current_user.nickname || current_user.email
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
                   = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
+
+
 
         - if !@current_controller == 'pages'
           .sub-header
@@ -91,9 +97,6 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                     span.help-icon
                       span.tooltip
                         span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
-        
-          - if user_signed_in? && current_user.is_admin?
-            = link_to 'Статистика', :controller => :statistics, :action => :show
 
         = yield
         

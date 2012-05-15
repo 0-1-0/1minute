@@ -1,4 +1,6 @@
 Oneminute::Application.routes.draw do
+  get "transactions/reset_all"
+
   get "statistics/show"
 
   resources :activities do
