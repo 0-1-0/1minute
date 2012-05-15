@@ -4,7 +4,8 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
     title 1minute
     meta[content="text/html;charset=UTF-8" http-equiv="Content-Type"]
     meta[content="IE=EmulateIE8" http-equiv="X-UA-Compatible"]
-    meta[content="width=1020" name="viewport"]    
+    meta[content="width=1020" name="viewport"]   
+    meta[name="apple-mobile-web-app-capable" content="yes"]
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin"]
     link[rel="stylesheet" type="text/css" href="http://stg.odnoklassniki.ru/share/odkl_share.css"]
@@ -62,11 +63,9 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                 li
                   a[href=""]
                     | FAQ
-                /- if user_signed_in? && current_user.is_admin?
-                li
-                  = link_to 'Выйти', destroy_user_session_path
-                li
-                  = link_to 'Статистика', :controller => :statistics, :action => :show
+                - if user_signed_in? && current_user.is_admin?
+                  li
+                    = link_to 'Статистика', :controller => :statistics, :action => :show
 
             - if user_signed_in?
               .user-block-border
@@ -74,6 +73,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                   span.user-name=current_user.nickname || current_user.email
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
+                  = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
 
         .sub-header
           .main-width
