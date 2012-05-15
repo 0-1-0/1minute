@@ -53,16 +53,12 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
             .header-menu
               ul
                 li
-                  a[href=""]
-                    | Команда
+                  = link_to "О проекте", page_path("project")
                 li
                   a[href=""]
-                    | Блог
+                    | Отчеты
                 li
                   = link_to "Партнеры", page_path("partners")
-                li
-                  a[href=""]
-                    | FAQ
 
 
             - if user_signed_in?
