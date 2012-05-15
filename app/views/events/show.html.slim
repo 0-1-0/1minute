@@ -127,15 +127,14 @@
                     .fullaction-do
                       a.hidden.btn-do
                         i
-                      .fb-like data-href=activity.data.html_safe data-send="true" data-width="450" data-show-faces="true"
+                      .fb-like data-href=activity.data.html_safe data-send="true" data-layout="box_count" data-width="150" data-show-faces="true"
                       javascript:
                         fb_map["#{activity.data.html_safe}"] = #{activity.id};
 javascript:
   FB.Event.subscribe('edge.create',
     function(response) {
       $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
-         alert($('.popup-slider').find('.popup-slide[activity_id='+#{@event.id}+'] .btn-do').length);
-        $('.popup-slider').find('.popup-slide[activity_id='+#{@event.id}+'] .btn-do').click();
+        $('.popup-slider').find('.popup-slide[activity_id='+fb_map[response]+'] .btn-do').click();
       });
     }
   );
