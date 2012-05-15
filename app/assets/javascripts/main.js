@@ -20,7 +20,6 @@ $(document).ready(function(){
 		generateNextPrev: 1,
 		effect : 'slide'
 	});
-
 	
 	initPopupSlides = function(){		
 		$('.popup-slider').slides({
@@ -70,12 +69,12 @@ $(document).ready(function(){
 	
 	$('.btn-do').live('click', function(){
 		$curSlide = $(this).parents('.popup-slide').eq(0); 
-		donePos = $curSlide.index();
-		console.log(donePos);
+		doneId = $curSlide.attr('activity_id');
+		console.log(doneId);
 		$.ajax({
 			url:'ajax.html',
 			success: function(data){
-				$curOperation = $('.operation:not(.operation-done)').eq(donePos);
+				$curOperation = $('.operation:not(.operation-done)[activity_id='+doneId+']');
 				$curOperation.html(data);
 				$curOperation.addClass('operation-done');
 				$('.popup').fadeOut();

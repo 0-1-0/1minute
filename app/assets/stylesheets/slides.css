@@ -24,7 +24,9 @@
 }
 
 .promo-slider .next,.promo-slider .prev {
-	background: url(slider-arrows.png) no-repeat 0 0;	
+	background: url(
+
+slider-arrows.png) no-repeat 0 0;	
 	width:15px;
 	height:37px;
 	display:inline-block;
@@ -61,7 +63,9 @@
 	position: relative; 
 	z-index: 10;
 	top: 10px;
-	background: #0a80cf url(noise-promo.png) repeat;
+	background: #0a80cf url(
+
+noise-promo.png) repeat;
 	padding: 0 13px;
 	margin: 0 -13px;
 	vertical-align: top
@@ -79,7 +83,9 @@
 	display:inline-block;
 	*display: inline;
 	zoom: 1;
-	background: url(slider-points.png) no-repeat right 0;
+	background: url(
+
+slider-points.png) no-repeat right 0;
 	width:17px;
 	height:17px;
 	overflow:hidden;
@@ -97,14 +103,18 @@
 
 .popup-slider .popup-slide {height: 644px}
 .popup-slider .pagination {display: none}
-.popup-slider .prev {width: 71px; height: 71px; background: url(popup-controls.png) no-repeat 0 0; position: absolute; left: -36px; top: 143px; text-indent: -9999px; overflow: hidden; z-index: 100}
+.popup-slider .prev {width: 71px; height: 71px; background: url(
+
+popup-controls.png) no-repeat 0 0; position: absolute; left: -36px; top: 96px; text-indent: -9999px; overflow: hidden; z-index: 100}
 	.popup-slider .prev:hover {background-position: 0 bottom}
-.popup-slider .next {width: 71px; height: 71px; background: url(popup-controls.png) no-repeat -71px 0; position: absolute; right: -36px; top: 143px; text-indent: -9999px; overflow: hidden; z-index: 100}
+.popup-slider .next {width: 71px; height: 71px; background: url(
+
+popup-controls.png) no-repeat -71px 0; position: absolute; right: -36px; top: 96px; text-indent: -9999px; overflow: hidden; z-index: 100}
 	.popup-slider .next:hover {background-position: -71px bottom}
 	
 .popup-slider .slides_container {
-	width:862px;
-	height: 644px;
+	width:732px;
+	height: 550px;
 	overflow:hidden;
 	position:relative;
 	display:block;

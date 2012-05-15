@@ -20,3 +20,4 @@
 //= require jquery.ezmark.min
 //= require jquery.example.min
 //= require main
+//= require social-likes

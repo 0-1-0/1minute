@@ -18,6 +18,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
     = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
     = javascript_include_tag "http://apis.google.com/js/plusone.js"
+    = javascript_include_tag "social-likes.js"
 
     javascript:
       FB.init({
@@ -63,9 +64,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                 li
                   a[href=""]
                     | FAQ
-                - if user_signed_in? && current_user.is_admin?
-                  li
-                    = link_to 'Статистика', :controller => :statistics, :action => :show
+
 
             - if user_signed_in?
               .user-block-border
@@ -96,13 +95,17 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                   span.help-icon
                     span.tooltip
                       span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
+        
+          - if user_signed_in? && current_user.is_admin?
+            = link_to 'Статистика', :controller => :statistics, :action => :show
+
         = yield
         
-        .invite-block
-          .main-width
-            .invite-title РАССКАЖИ ДРУЗЬЯМ О НАШЕМ ПРОЕКТЕ
-            .invite-bls.ta-justify
-              - if !user_signed_in?
+        - if !user_signed_in?
+          .invite-block
+            .main-width
+              .invite-title РАССКАЖИ ДРУЗЬЯМ О НАШЕМ ПРОЕКТЕ
+              .invite-bls.ta-justify
                 .invite-bl 
                   #vk_groups[style='float:left']
                   javascript:
@@ -135,31 +138,40 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                       }
                     }).render().setUser('1minuteru').start();
 
-                .invite-bl 
-                  iframe[src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2F1minuteru%2F259882880729879&amp;width=250&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px; " allowTransparency="false"]
+                  .invite-bl 
+                    iframe[src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2F1minuteru%2F259882880729879&amp;width=250&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px; " allowTransparency="false"]
 
-            .invite-bl.invite-bl-long
-              .social-button
-                javascript:
-                  document.write(VK.Share.button({title: '1 Minute - Твоя минута на добро', description: 'Удели минуту своего времени и помоги детям получить подарки на новый год.', image: 'http://1minute.ru/images/logo.png', noparse: true},{type: "button", text: "Поделиться"}));
-
-              
-              .social-button[style="margin-left:10px"]
-                fb:like[send="false" layout="button_count" width="88" show_faces="true"]
-
-              .social-button
-                a[href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"]
-                Tweet 
-
-              .social-button
-                g:plusone[size="medium"]
-              
-              .social-button
-                a[class="odkl-klass-stat" href="http://1minute.ru/" onclick="ODKL.Share(this);return false;" style="float:left"] 
-                  span
-                    0
-    .footer
+    .footer.footer-full
       .main-width
+        .footer-social
+          .social-plugin
+            ul.social-likes
+              li.vkontakte
+                a href="#" title="Опубликовать ссылку во Вконтакте"
+                  | Вконтакте
+              li.plusone
+                a href="#" title="Плюсануть в Гугле"
+                  | +1
+              li.twitter
+                a data-related="DessiTeckel:Моя такса" data-via="sapegin" href="#" title="Опубликовать ссылку в Твиттере"
+                  | Twitter
+              li.facebook
+                a href="#" title="Опубликовать ссылку на Фейсбуке"
+                  | Facebook
+              li.odnoklassniki
+                a href="#" title="Опубликовать ссылку в Одноклассниках"
+                  | Одноклассники
+                
+          span Мы в социальных сетях:
+          ul
+            li
+              a.icon-soc.icon-fb href=""
+            li
+              a.icon-soc.icon-vk href=""
+            li
+              a.icon-soc.icon-tw href=""
+        .footer-left
+          .copyright © 2011–2012  «Одна минута».  Проект создан и поддерживается силами людей, которые хотят сделать этот мир добрее.
         .footer-right
           .contacts
             a.contacts-item.mail href="mailto:aa@aa.aa"
