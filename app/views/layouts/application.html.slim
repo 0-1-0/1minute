@@ -100,7 +100,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
 
         = yield
         
-        - if !user_signed_in? && !@current_controller == 'pages'
+        - if !user_signed_in?
           .invite-block
             .main-width
               .invite-title РАССКАЖИ ДРУЗЬЯМ О НАШЕМ ПРОЕКТЕ
@@ -161,14 +161,18 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                 a href="#" title="Опубликовать ссылку в Одноклассниках"
                   | Одноклассники
                 
-          span Мы в социальных сетях:
-          ul
-            li
-              a.icon-soc.icon-fb href=""
-            li
-              a.icon-soc.icon-vk href=""
-            li
-              a.icon-soc.icon-tw href=""
+          - if user_signed_in?
+            span Мы в социальных сетях:
+            ul
+              li
+                a.icon-soc.icon-fb href=""
+              li
+                a.icon-soc.icon-vk href=""
+              li
+                a.icon-soc.icon-tw href=""
+          - if !user_signed_in?
+            javascript:
+              $('.social-plugin').css( 'float' , 'left'  );
         .footer-left
           .copyright © 2011–2012  «Одна минута».  Проект создан и поддерживается силами людей, которые хотят сделать этот мир добрее.
         .footer-right

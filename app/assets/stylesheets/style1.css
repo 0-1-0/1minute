@@ -14,6 +14,10 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 	  background: #ff00cc;
 	}
 
+	.footer-partners{
+		margin-bottom:666px;
+	}
+
 	h1,h2,h3,h4,h5,h6 {}	
 		h1{}
 		h2{}
