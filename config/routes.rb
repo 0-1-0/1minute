@@ -1,4 +1,8 @@
 Oneminute::Application.routes.draw do
+  get "passwords/update"
+
+  get "passwords_controller/update"
+
   get "transactions/reset_all"
 
   get "statistics/show"
@@ -12,7 +16,9 @@ Oneminute::Application.routes.draw do
 
   resources :events
 
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", :passwords => "passwords"}
+
+  resources :passwords
   resources :users, only: [:index, :destroy]
   root to: 'events#index'
 

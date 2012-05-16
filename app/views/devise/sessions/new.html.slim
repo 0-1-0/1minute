@@ -46,7 +46,7 @@
                 label
                   = f.check_box :remember_me, class: 'i-ch'
                   | Запомнить меня
-                a[href=""]
+                a[href="#" class="forgot_password"]
                   | Забыли пароль?
           .login-new
             a[href="#"] 
@@ -86,11 +86,28 @@
       a.a-social.social-odno href=""
       a.a-social.social-mail href=""
 
+.popup.popup-password
+  .popup-content
+    span.popup-close
+    .popup-form
+      form action="" method="post"
+        .popup-form-title Сброс пароля
+        .line
+          label Введите ваш адрес электронной почты
+        .line
+          input.i-text.i-text-long.pad-big type="text"
+          input.i-submit.btn-reset type="submit" value="сбросить пароль"
+
 javascript:
   $('.popup').hide();
   $('.pelena').hide();
 
   $('.login-new').click(function(){
     $('.pelena').show();
-    $('.popup').show();
+    $('.popup.popup-login').show();
+  });
+
+  $('.forgot_password').click(function(){
+    $('.pelena').show();
+    $('.popup.popup-password').show();
   });
