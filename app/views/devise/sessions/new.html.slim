@@ -60,7 +60,7 @@
   .popup-content
     span.popup-close
     .popup-form
-      =form_for(user_registration_path, :url => user_registration_path) do |f|
+      =form_for(@user, :url => user_registration_path, :method=>'post', :id => 'user_new') do |f|
         .popup-form-title Присоеденяйся к добрым людям
         .line
           label Введите свою электронную почту и придумайте пароль
@@ -68,7 +68,7 @@
           = f.text_field :email, :required => true, class: 'i-text', title: "Email"
           /input.i-text title="EMAIL" type="text"
         .line
-          = f.text_field :password, :required => true, class: 'i-text', title: 'Пароль'
+          = f.password_field :password, :required => true, class: 'i-text', title: 'Пароль'
           /input.i-text.pad-big title="ПАРОЛЬ" type="text"
           = f.submit "Зарегистрироваться", class: "i-submit btn-login"
     .line
