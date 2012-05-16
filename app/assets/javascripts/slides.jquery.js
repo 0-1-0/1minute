@@ -441,7 +441,8 @@
 				}
 				// for each slide create a list item and link
 				control.children().each(function(){
-					$('.' + option.paginationClass, elem).append('<li><a href="#'+ number +'">'+ (number+1) +'</a></li>');
+					$('.' + option.paginationClass, elem).append('<li><a href="#'+ number +'" activity_id="' + $(this).attr('activity_id') + '">'+ (number+1) +'</a></li>');
+					
 					number++;
 				});
 			} else {

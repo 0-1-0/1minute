@@ -55,8 +55,15 @@ $(document).ready(function(){
 	
 	$('.operation a').live('click', function(){
 		//go to clicked operation in popup
-		clickedPos = $('.operation:not(.operation-done)').index($(this).parent());
-		$('.popup-slider .pagination li').eq(clickedPos).find('a').click();
+		activity_id = $(this).parent().attr('activity_id');
+
+		//$curSlide = $('.popup-slider .popup-slide[activity_id='+activity_id+']');
+		//curSlidePos = $('.popup-slide').index($curSlide);
+
+		//alert('activity_id=' + activity_id + 'slide_pos=' + curSlidePos);
+
+		//clickedPos = $('.operation:not(.operation-done)').index($(this).parent());
+		$('.popup-slider .pagination li a[activity_id='+activity_id+']').click();
 		$('.popup-slider .slides_control').stop(true,true);
 		
 		
