@@ -19,7 +19,7 @@
                   span= (@event.current_min * @event.conv_course).to_i
                   |  из #{(@event.target_minimum * @event.conv_course).to_i} #{@event.ex_name}
                 .action-progress-bar
-                  i[style="width:#{(100*((@event.current_min%@event.target_minimum).to_f/@event.target_minimum.to_f)).to_i}%"]
+                  i[style="width:#{(100*event.current_min.to_f/event.target_minimum.to_f).to_i%101}%"]
             .action-br
               = link_to 'Сменить акцию', events_path, class: 'btn btn-change-action'
               /a.btn.btn-change-action[href=""]
