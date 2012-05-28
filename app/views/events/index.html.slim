@@ -43,7 +43,7 @@
         - @events.each do |event|
           .action
             .action-img
-              = image_tag event.image_url, size: '312x200', alt: 'action-img'
+              = link_to image_tag(event.image_url, size: '312x200', alt: 'action-img'), event_path(event)
               /img[src="images/content/action-img.jpg" alt="action-img" width="312" height="200"]
               i
             .action-info
