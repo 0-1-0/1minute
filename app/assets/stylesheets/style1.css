@@ -136,7 +136,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.action{border: 1px solid #eaeaea;  position: relative; overflow: hidden; zoom: 1; padding-right: 20px; margin-bottom: 3px}
 					.action .action-img{float: left; margin-right: 21px; margin: -1px 0 0 -1px; position: relative; margin-right: 14px}
 						.action .action-img img {display: block}
-						.action .action-img i {background: url(action-img-angle.png) no-repeat 0 0;width: 19px;height: 14px; position: absolute; right: 0; top: 0}
+						.action .action-img i {width: 19px;height: 14px; position: absolute; right: 0; top: 0}
 					.action .action-info{overflow: hidden; zoom: 1; color: #a28c70; padding-top: 24px; padding-left: 10px}
 						.action .action-info .action-title {font-size: 16px; text-transform: uppercase; font-weight: bold; height: 25px;  }
 						.action .action-info .action-text {padding-left: 32px; font-size: 13px; line-height: 1.3; height: 66px; margin-bottom: 17px; overflow: hidden; zoom: 1}
