@@ -301,6 +301,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 		
 		.btn {}
 			.btn-go-action {background: url(btn-go.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
+			.btn-go-action:hover {background-position: 0 -33px}	
 			.btn-change-action {background: url(btn-change.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
 			.btn-change-action:hover {background-position: 0 -33px}
 			.btn-do {width: 150px;  text-align: center; color: #28a3f1; display: inline-block; *display: inline; zoom: 1; vertical-align: middle; margin-top: 47px}
