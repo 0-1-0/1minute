@@ -25,8 +25,9 @@
               br
               | существующего аккаунта или зарегистрироваться
 
-          - if flash[:alert]
-            span[style="background:red; width:200px; height: 20px; margin: 10px 10px 10px 10px; "] Вы ввели неверный пароль.
+          - if flash[:alert] and flash[:alert] == 'Invalid email or password.'
+            span[style="background:red; width:200px; height: 20px; margin: 10px 10px 10px 10px; "] Вы ввели неверный e-mail пароль.
+            /=flash[:alert]
 
           .login-social
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
