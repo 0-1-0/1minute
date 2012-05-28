@@ -24,6 +24,10 @@
               | Чтобы начать помогать нужно войти с помощью
               br
               | существующего аккаунта или зарегистрироваться
+
+          - if flash[:alert]
+            span[style="background:red; width:200px; height: 20px; margin: 10px 10px 10px 10px; "] Вы ввели неверный пароль.
+
           .login-social
             = link_to omniauth_authorize_path(resource_name, 'facebook') do
               .a-social.social-fb
@@ -36,7 +40,12 @@
             a.a-social.social-odno href=""
             a.a-social.social-mail href=""
           .login-form
+            /h1= flash[:notice]
+            /h1= flash[:warning]
+            
+            /h1= flash[:error]
             = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+              /.line=f.error_messages
               .line
                 = f.text_field :email, class: 'i-text', title: "Email"
               .line
