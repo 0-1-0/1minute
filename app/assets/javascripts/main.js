@@ -100,7 +100,7 @@ $(document).ready(function(){
 	
 	reInitScroll();
 	
-	$('.help-icon').hover(
+	$('.good-block').hover(
 		function(){
 			$(this).find('.tooltip').stop(true, true).fadeIn();
 		},
