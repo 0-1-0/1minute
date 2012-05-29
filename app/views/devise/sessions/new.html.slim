@@ -26,7 +26,10 @@
               | существующего аккаунта или зарегистрироваться
 
           - if flash[:alert] and flash[:alert] == 'Invalid email or password.'
-            span[style="background:red; width:200px; height: 20px; margin: 10px 10px 10px 10px; "] Вы ввели неверный e-mail пароль.
+            .error
+              span.error-close
+              | ВЫ ВВЕЛИ НЕВЕРНЫЙ ПАРОЛЬ
+            /span[style="background:red; width:200px; height: 20px; margin: 10px 10px 10px 10px; "] Вы ввели неверный e-mail пароль.
             /=flash[:alert]
 
           .login-social
