@@ -131,6 +131,9 @@
                       javascript:
                         fb_map["#{activity.data.html_safe}"] = #{activity.id};
 javascript:
+  $('.popup').hide();
+  $('.pelena').hide();
+  
   FB.Event.subscribe('edge.create',
     function(response) {
       $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
@@ -139,5 +142,4 @@ javascript:
     }
   );
 
-  $('.popup').hide();
-  $('.pelena').hide();
+  
