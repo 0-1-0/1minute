@@ -21,3 +21,4 @@
 //= require jquery.example.min
 //= require main
 //= require social-likes
+//= require jquery.fancybox.pack

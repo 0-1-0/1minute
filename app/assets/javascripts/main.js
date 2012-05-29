@@ -108,6 +108,8 @@ $(document).ready(function(){
 			$(this).find('.tooltip').hide();
 		}
 	)
+
+	$('.gallery a').fancybox();
 	
 /* 	$('.popup').hide().css({'visibility':'visible'}) */
 	
