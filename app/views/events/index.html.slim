@@ -66,7 +66,11 @@
                       = link_to 'Редактировать', edit_event_path(event)
                     #admin-delete
                       = link_to 'Удалить', event_path(event), :method => :delete, confirm: 'Are you sure?'
-                = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
+                - if !event.report_link
+                  = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
+                - else
+                  a.btn.btn-otchet[href="#{event.report_link}"]
+                  
         - if current_user.is_admin?
           br
           = link_to 'Создать новую акцию', new_event_path, :class => 'btn'

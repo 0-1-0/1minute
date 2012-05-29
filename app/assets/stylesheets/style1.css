@@ -14,10 +14,6 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 	  background: #ff00cc;
 	}
 
-	.footer-partners{
-		margin-bottom:666px;
-	}
-
 	h1,h2,h3,h4,h5,h6 {}	
 		h1{}
 		h2{}
@@ -94,14 +90,14 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 						.login-social .a-social.social-fb {background-position: 0 bottom; width: 102px}
 						.login-social .a-social.social-vk {background-position: -102px bottom; width: 107px }
 						.login-social .a-social.social-twitter {background-position: -209px bottom; width: 32px}
-						.login-social .a-social.social-odno {background: url(social-gray.png) no-repeat 0 0; background-position: -241px bottom; width: 32px}
-						.login-social .a-social.social-mail {background: url(social-gray.png) no-repeat 0 0; background-position: -273px bottom; width: 32px}
+						.login-social .a-social.social-odno {background-position: -241px bottom; width: 32px}
+						.login-social .a-social.social-mail {background-position: -273px bottom; width: 32px}
 
 						.login-social .a-social.social-fb:hover {background-position: 0 0;}
 						.login-social .a-social.social-vk:hover {background-position: -102px 0;}
 						.login-social .a-social.social-twitter:hover {background-position: -209px 0;}
-						.login-social .a-social.social-odno:hover {background: url(social-gray.png) no-repeat 0 0; background-position: -241px 0;}
-						.login-social .a-social.social-mail:hover {background: url(social-gray.png) no-repeat 0 0; background-position: -273px 0;}
+						.login-social .a-social.social-odno:hover {background-position: -241px 0;}
+						.login-social .a-social.social-mail:hover {background-position: -273px 0;}
 
 				
 					.login-block .login-social img {margin-left: -4px}
@@ -121,7 +117,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 		.invite-block {padding: 55px 0 35px; }
 			.invite-block .invite-title{font-size: 22px; color: #0a80cf; text-transform: uppercase; margin-bottom: 31px}
 			.invite-block .invite-bls {margin-right: -25px}
-				.invite-block .invite-bl { width: 300px; height: 250px; display: inline-block; *display: inline; zoom: 1; margin-bottom: 13px}
+				.invite-block .invite-bl {background: #0a80cf; width: 300px; height: 230px; display: inline-block; *display: inline; zoom: 1; margin-bottom: 13px}
 				.invite-block .invite-bl.invite-bl-long {width: 100%; height: 36px}
 		
 		.full-block {}
@@ -136,7 +132,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.action{border: 1px solid #eaeaea;  position: relative; overflow: hidden; zoom: 1; padding-right: 20px; margin-bottom: 3px}
 					.action .action-img{float: left; margin-right: 21px; margin: -1px 0 0 -1px; position: relative; margin-right: 14px}
 						.action .action-img img {display: block}
-						.action .action-img i {width: 19px;height: 14px; position: absolute; right: 0; top: 0}
+						.action .action-img i {background: url(action-img-angle.png) no-repeat 0 0;width: 19px;height: 14px; position: absolute; right: 0; top: 0}
 					.action .action-info{overflow: hidden; zoom: 1; color: #a28c70; padding-top: 24px; padding-left: 10px}
 						.action .action-info .action-title {font-size: 16px; text-transform: uppercase; font-weight: bold; height: 25px;  }
 						.action .action-info .action-text {padding-left: 32px; font-size: 13px; line-height: 1.3; height: 66px; margin-bottom: 17px; overflow: hidden; zoom: 1}
@@ -207,7 +203,8 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			
 		.footer {background: #f2f2f2; padding: 27px 0 50px; border-top: 1px solid #ffffff; overflow: hidden; height: 127px; margin-top: -204px;}
 			.footer .footer-left {float: left; width: 604px; margin-right: 19px;   width: 570px; }
-				.footer .footer-left .copyright{padding: 25px 0px 24px 97px; background: url(copyright.png) no-repeat 21px 23px; border:  1px solid #c8bcae; color: #a18b6f; line-height: 1.4; margin-right: 33px; margin-bottom: 19px; font-size: 14px; margin-right: 0}
+				.footer .footer-left .copyright{padding: 25px 20px 24px 97px; background: url(copyright.png) no-repeat 21px 23px; border:  1px solid #c8bcae; color: #a18b6f; line-height: 1.4; font-size: 14px; margin-right: 0; border-top-color: #fff}
+					.footer .footer-left .copyright-wrap {border-bottom: 1px solid #fff; border-top: 1px solid #c8bcae; margin-right: 33px; margin-bottom: 19px;}
 				.footer .footer-left .footer-menu {padding-left: 98px}
 					.footer .footer-left .footer-menu {overflow: hidden; zoom: 1;  overflow: hidden; margin-right: 20px }
 						.footer .footer-left .footer-menu ul{overflow: hidden; padding-bottom: 5px}
@@ -305,11 +302,14 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 			.btn-change-action {background: url(btn-change.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
 			.btn-change-action:hover {background-position: 0 -33px}
 			.btn-do {width: 150px;  text-align: center; color: #28a3f1; display: inline-block; *display: inline; zoom: 1; vertical-align: middle; margin-top: 47px}
-				.btn-do i {display: block; background: url(hearth.png) no-repeat center 0; height: 118px; width: 118px; margin: auto; margin-bottom: 12px}
+				.btn-do i {display: block; background: url(hearth.png) no-repeat center 0; height: 118px; width: 118px; margin: auto; margin-bottom: 12px; overflow: hidden; zoom: 1}
 				.btn-do:hover i {background-position: 0 -118px !important; }
 				.btn-do:hover i span {opacity: 0 !important}
 				.btn-do i span{background: url(hearth.png) no-repeat center bottom;width: 118px;height: 118px; display: block }
 			
+			.btn-otchet {background: url(btn-otchet.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
+			.btn-otchet:hover {background-position: 0 -33px}	
+
 		
 /* other help */
 	.ta-justify {text-align:justify; *text-align-last:justify;}
@@ -327,3 +327,34 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 
 
 .hidden {display: none}
+
+/* new */
+
+p big  {font-size: 16px}
+	p big a {color: #3ab9e2}
+.align-center {text-align: center}
+
+.otchet-blocks {padding-top: 40px; overflow: hidden; zoom: 1; padding-bottom: 45px}
+	.otchet-block {float: left; margin-right: 60px}
+		.otchet-block .otchet-block-title {font-size: 16px; margin-bottom: 22px; padding-left: 47px}
+		.otchet-block .otchet-block-icon {font-size: 16px; padding-left: 47px;}
+			.otchet-block .otchet-block-icon .otchet-block-count{font-size: 18px; color: #3ab9e2; font-style: italic}
+			.otchet-block .otchet-block-icon .otchet-block-count big {display: block; font-style: normal; font-size: 24px; margin-bottom: 1px}
+			
+	.otchet-block-1 .otchet-block-icon {background: url(otchet-icon-1.png) no-repeat 0 0;}
+	.otchet-block-2 .otchet-block-icon {background: url(otchet-icon-2.png) no-repeat 0 0;}
+	.otchet-block-3 .otchet-block-icon {background: url(otchet-icon-3.png) no-repeat 0 0;}
+	.otchet-block-2 {margin-right: 35px}
+	.otchet-block-3 {margin-right: 0}
+	
+.otchet-text {}
+	.otchet-text p{line-height: 24px; padding-bottom: 24px}
+	
+.gallery {overflow: hidden; zoom: 1; padding: 15px 10px 40px 20px; font-size: 0}
+	.gallery span { margin:0 10px 18px; display: inline-block; *display: inline; zoom: 1; vertical-align: top; position: relative}
+	.gallery span a {background: url(gallery-zoom.png) no-repeat 0 0;width: 35px;height: 35px; position: absolute; right: 0 ;bottom: 0}
+.gallery-hor span{float: left}
+	.gallery-vert {vertical-align: top; min-width: 50px; overflow: hidden}
+	
+.error {text-align: center; background: #9b0000;padding: 4px 0 3px; margin: 10px 0; line-height: 15px; font-size: 12px; color: #fff}
+	.error .error-close {display: inline-block; *display: inline; zoom: 1; background: url(error-close.png) no-repeat 0 0; width: 12px; height: 12px; margin-right: 12px; vertical-align: middle; position: relative; top: -1px;}
