@@ -69,7 +69,6 @@
                 - if !event.report_link or event.report_link == ''
                   = link_to 'Перейти к действиям', event_path(event), class: 'btn btn-go-action'
                 - else
-                  = event.report_link
                   a.btn.btn-otchet[href="#{event.report_link}"]
                   
         - if current_user.is_admin?
