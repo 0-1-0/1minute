@@ -130,6 +130,14 @@
                       .fb-like-box data-href=activity.data.html_safe data-width="222" data-height="232" data-show-faces="true" data-stream="false" data-header="false"
                       javascript:
                         fb_map["#{activity.data.html_safe}"] = #{activity.id};
+
+                  - elsif activity.activity_type == "facebook like2"
+                    .fullaction-do
+                      a.hidden.btn-do
+                        i
+                      .fb-like[data-href=activity.data.html_safe data-width="220" data-height="232" data-send="true" data-show-faces="true" ]
+                      javascript:
+                        fb_map["#{activity.data.html_safe}"] = #{activity.id};
 javascript:
   $('.popup').hide();
   $('.pelena').hide();

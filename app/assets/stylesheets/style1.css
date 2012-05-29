@@ -7,6 +7,16 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 	  color: rgba(255, 255, 255, 0.85);
 	  background: #ff00cc;
 	}
+
+	.fb2frame {
+    zoom: 0.85;
+    -moz-transform: scale(0.85);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.85);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.85);
+    -webkit-transform-origin: 0 0;
+}
 	
 	::selection {
 	  color: #fff;
