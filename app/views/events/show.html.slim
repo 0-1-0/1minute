@@ -12,12 +12,12 @@
             .action-text= @event.description
             .action-bl
               .action-rules
-                | #{@event.convert_name}
+                | #{@event.convert_name} = #{@event.conv_course} минут
               .action-progress
                 .action-progress-text
                   | Собрано 
-                  span= (@event.current_min * @event.conv_course).to_i
-                  |  из #{(@event.target_minimum * @event.conv_course).to_i} #{@event.ex_name}
+                  span= (@event.current_min / @event.conv_course).to_i
+                  |  из #{(@event.target_minimum / @event.conv_course).to_i} #{@event.ex_name}
                 .action-progress-bar
                   i[style="width:#{(100*@event.current_min.to_f/@event.target_minimum.to_f).to_i%101}%"]
             .action-br
