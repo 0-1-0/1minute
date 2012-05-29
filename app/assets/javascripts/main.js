@@ -111,7 +111,7 @@ $(document).ready(function(){
 
 	$('.gallery a').fancybox();
 	
-/* 	$('.popup').hide().css({'visibility':'visible'}) */
+ 	$('.popup').hide();//.css({'visibility':'visible'})
 	
 /* 	$('.good-block .counter').append('<span/>') */
 })
