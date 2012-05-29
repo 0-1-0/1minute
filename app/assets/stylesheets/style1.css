@@ -90,14 +90,14 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 						.login-social .a-social.social-fb {background-position: 0 bottom; width: 102px}
 						.login-social .a-social.social-vk {background-position: -102px bottom; width: 107px }
 						.login-social .a-social.social-twitter {background-position: -209px bottom; width: 32px}
-						.login-social .a-social.social-odno {background-position: -241px bottom; width: 32px}
-						.login-social .a-social.social-mail {background-position: -273px bottom; width: 32px}
+						.login-social .a-social.social-odno {background: url(social-gray.png) no-repeat 0 0; height: 33px; background-position: -241px bottom; width: 32px}
+						.login-social .a-social.social-mail {background: url(social-gray.png) no-repeat 0 0; height: 33px; background-position: -273px bottom; width: 32px}
 
 						.login-social .a-social.social-fb:hover {background-position: 0 0;}
 						.login-social .a-social.social-vk:hover {background-position: -102px 0;}
 						.login-social .a-social.social-twitter:hover {background-position: -209px 0;}
-						.login-social .a-social.social-odno:hover {background-position: -241px 0;}
-						.login-social .a-social.social-mail:hover {background-position: -273px 0;}
+						.login-social .a-social.social-odno:hover {background: url(social-gray.png) no-repeat 0 0; height: 33px;background-position: -241px 0;}
+						.login-social .a-social.social-mail:hover {background: url(social-gray.png) no-repeat 0 0; height: 33px;background-position: -273px 0;}
 
 				
 					.login-block .login-social img {margin-left: -4px}
@@ -117,7 +117,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 		.invite-block {padding: 55px 0 35px; }
 			.invite-block .invite-title{font-size: 22px; color: #0a80cf; text-transform: uppercase; margin-bottom: 31px}
 			.invite-block .invite-bls {margin-right: -25px}
-				.invite-block .invite-bl {background: #0a80cf; width: 300px; height: 230px; display: inline-block; *display: inline; zoom: 1; margin-bottom: 13px}
+				.invite-block .invite-bl { width: 300px; height: 250px; display: inline-block; *display: inline; zoom: 1; margin-bottom: 13px}
 				.invite-block .invite-bl.invite-bl-long {width: 100%; height: 36px}
 		
 		.full-block {}
