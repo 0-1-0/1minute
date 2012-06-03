@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529203416) do
+ActiveRecord::Schema.define(:version => 20120603200525) do
 
   create_table "activities", :force => true do |t|
     t.string   "activity_type"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120529203416) do
     t.string   "logo_image"
     t.float    "service_fee"
     t.integer  "sorting_order", :default => 0
+    t.boolean  "visible",       :default => true,  :null => false
   end
 
   add_index "activities", ["activity_type"], :name => "index_actions_on_type"

@@ -31,7 +31,7 @@
   .full-content
     .main-width
       .operations.ta-justify
-        - Activity.find(:all, :order=>:sorting_order).each do |activity|
+        - Activity.where(:visible=>true).order(:sorting_order).each do |activity|
           - unless activity.done?(current_user)
             .operation[activity_id="#{activity.id}"]
               = link_to '#' do
@@ -88,7 +88,7 @@
     span.popup-close
     .popup-slider
       .slides_container
-        - Activity.find(:all, :order => :sorting_order).each do |activity|
+        - Activity.where(:visible=>true).order(:sorting_order).each do |activity|
           - unless activity.done?(current_user)
             .popup-slide[activity_id="#{activity.id}"]
               .fullaction
