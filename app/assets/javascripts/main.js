@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var btnInterval = '';
 	reInitScroll = function(){
-		$('.popup .popup-slide:visible .scrollable').jScrollPane();
+		$('.popup .popup-slide: .scrollable').jScrollPane();
 		var $btn = $('.popup .popup-slide:visible .btn-do i span');
 		btnAnimate = function(){
 			$btn.fadeIn(1000, function(){
@@ -97,6 +97,8 @@ $(document).ready(function(){
 
 
 	})
+
+	//$('.popup').hide();
 	
 	reInitScroll();
 	
@@ -111,7 +113,7 @@ $(document).ready(function(){
 
 	$('.gallery a').fancybox();
 	
- 	$('.popup').hide();//.css({'visibility':'visible'})
+ 	//.css({'visibility':'visible'})
 	
 /* 	$('.good-block .counter').append('<span/>') */
 })
