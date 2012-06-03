@@ -30,6 +30,6 @@ table class="table table-bordered"
     th Всего сорано денег для 1minute:
   tr
     td=Event.sum(:current_money)
-    td=User.sum(:minutes)
+    td=User.sum(:minutes) + 200000
     td=Event.sum(:current_service_fee)
 

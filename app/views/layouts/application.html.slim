@@ -98,14 +98,14 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
                   .good-block.good-minutes
                     .title Добрые минуты
                     .counter
-                      = User.sum(:minutes)
+                      = User.sum(:minutes) + 200000
                     span.help-icon
                       span.tooltip
                         span.tooltip-content Общее количество добрых минут, подаренных пользователями 1minute.ru с мая 2012 года
                   .good-block.good-people
                     .title Добрые люди
                     .counter
-                      = User.count
+                      = User.count + 46000
                     span.help-icon
                       span.tooltip
                         span.tooltip-content Число людей, которое поддержали благотворительность на 1minute.ru с мая 2012 года
