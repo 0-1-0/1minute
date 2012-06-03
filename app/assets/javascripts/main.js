@@ -30,7 +30,7 @@ $(document).ready(function(){
 			generateNextPrev: 1,
 			effect : 'slide',
 			animationComplete : function(){
-				reInitScroll();
+				//reInitScroll();
 			}
 		});		
 	}
@@ -98,7 +98,7 @@ $(document).ready(function(){
 
 	})
 
-	//$('.popup').hide();
+	$('.popup').hide();
 	
 	reInitScroll();
 	

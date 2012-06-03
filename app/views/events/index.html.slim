@@ -51,7 +51,7 @@
               .action-text= event.description
               .action-bl
                 .action-rules
-                  | #{event.convert_name} = #{event.conv_course} минут
+                  | #{event.convert_name} = #{event.conv_course.to_i} минут
                 .action-progress
                   .action-progress-text
                     | Собрано 

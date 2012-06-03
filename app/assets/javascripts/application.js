@@ -22,3 +22,4 @@
 //= require main
 //= require social-likes
 //= require jquery.fancybox.pack
+//= require ga_social
