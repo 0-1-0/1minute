@@ -21,6 +21,17 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
     = javascript_include_tag "social-likes.js"
 
     javascript:
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29887249-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+
       FB.init({
         appId  : "#{ENV['FB_APP_ID']}",
         status : true, // check login status
@@ -29,6 +40,9 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
       });
       VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
       window.fb_map = {}
+
+    = javascript_include_tag "https://s3.amazonaws.com/ha_js/ga_social_tracking.js" #social tracking
+
     = csrf_meta_tags
 
   body
