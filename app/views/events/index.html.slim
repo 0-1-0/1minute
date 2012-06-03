@@ -48,7 +48,7 @@
               i
             .action-info
               .action-title= event.name
-              .action-text= event.description
+              .action-text= event.description.html_safe
               .action-bl
                 .action-rules
                   | #{event.convert_name} = #{event.conv_course.to_i} минут
