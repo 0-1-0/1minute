@@ -12,7 +12,7 @@
             .action-text= @event.description
             .action-bl
               .action-rules
-                | #{@event.convert_name} = #{@event.conv_course} минут
+                | #{@event.convert_name} = #{@event.conv_course.to_i} минут
               .action-progress
                 .action-progress-text
                   | Собрано 
@@ -125,8 +125,6 @@
                       });
                   - elsif activity.activity_type == "facebook like"
                     .fullaction-do
-                      javascript:
-                        _ga.trackFacebook();
                       a.hidden.btn-do
                         i
                       .fb-like-box data-href=activity.data.html_safe data-width="222" data-height="232" data-show-faces="true" data-stream="false" data-header="false"
@@ -135,8 +133,6 @@
 
                   - elsif activity.activity_type == "facebook like2"
                     .fullaction-do
-                      javascript:
-                        _ga.trackFacebook();
                       a.hidden.btn-do
                         i
                       .fb-like[data-href=activity.data.html_safe data-width="220" data-height="232" data-send="false" data-show-faces="true" ]
@@ -150,6 +146,8 @@ javascript:
     function(response) {
       $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
         $('.popup-slider').find('.popup-slide[activity_id='+fb_map[response]+'] .btn-do').click();
+
+        _gaq.push(['_trackSocial', 'facebook', 'like', response]);
       });
     }
   );
