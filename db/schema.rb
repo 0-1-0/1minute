@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20120603200525) do
     t.string   "logo_image"
     t.float    "service_fee"
     t.integer  "sorting_order", :default => 0
-    t.boolean  "visible",       :default => true,  :null => false
+    t.boolean  "visible",       :default => true
   end
 
   add_index "activities", ["activity_type"], :name => "index_actions_on_type"

@@ -1,5 +1,5 @@
 class AddVisibleToActivity < ActiveRecord::Migration
   def change
-    add_column :activities, :visible, :boolean, :null => false, :default => true
+    add_column :activities, :visible, :boolean, :default => true
   end
 end
