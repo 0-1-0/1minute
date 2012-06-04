@@ -302,7 +302,7 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.faq .faq-item .faq-title{margin-left: -28px; padding-left: 28px; padding-top: 5px; background: url(quote.png) no-repeat 0 2px; font-size: 18px; margin-bottom: 22px}
 		.people-wrap {overflow: hidden; zoom: 1}		
 		.people {overflow: hidden; zoom: 1; margin-right: -200px; margin-bottom: 40px}
-			.people .people-item{float: left; margin: 0 90px 0 25px; width: 205px; height: 120px; margin-bottom: 20px}
+			.people .people-item{float: left; margin: 0 90px 0 20px; width: 215px; height: 120px; margin-bottom: 20px}
 				.people .people-item .people-item-img{float: left; margin-right: 15px; }
 				.people .people-item .people-item-info{overflow: hidden; zoom: 1; line-height: 22px; font-size: 18px; position: relative; top: 35px}
 		
