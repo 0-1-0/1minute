@@ -222,7 +222,7 @@
       if (params.urlParam)
         query[params.urlParam] = params.url;
       if (params.textParam)
-        query[params.textParam] = document.title;
+        query[params.textParam] = "1 Minute - Твоя минута на добро. Удели минуту своего времени и помоги доброму делу." + document.title;
       if (params.additionalParams) {
         for (var paramIdx = 0; paramIdx < params.additionalParams.length; paramIdx++) {
           var key = params.additionalParams[paramIdx];
