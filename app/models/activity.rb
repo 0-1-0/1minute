@@ -36,7 +36,7 @@ class Activity < ActiveRecord::Base
     ev.each do |k, v|
       event = Event.find(k)
       event.current_money += v[:money] * rel
-      event.current_min   += v[:minutes]
+      event.current_min   += (v[:minutes] * rel).to_i
       event.current_service_fee += v[:service_fee] * rel
       event.save
     end
