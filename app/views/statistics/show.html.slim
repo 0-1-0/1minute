@@ -45,7 +45,4 @@ table class="table table-bordered"
       -@activities.each do |activity|
         td 
           | Собрано #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)} минут
-          | и #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:money)} денег
-          | для '#{event.name}''
-          | с помощью действия '#{activity.name}''
 
