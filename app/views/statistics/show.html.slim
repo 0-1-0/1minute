@@ -33,3 +33,12 @@ table class="table table-bordered"
     td=User.sum(:minutes) + 200000
     td=Event.sum(:current_service_fee)
 
+table class="table table-bordered"
+  -@events.each do |event|
+    tr
+      -@activities.each do |activity|
+        td 
+          | Собрано #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)} минут
+          | для #{event.name}
+          | с помощью #{activity.name}
+
