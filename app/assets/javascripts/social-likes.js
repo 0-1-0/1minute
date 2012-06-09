@@ -38,7 +38,7 @@
     findButtons: function(idx, li) {
       var buttonWrapper = $(li),
         container = buttonWrapper.closest('.social-likes'),
-        pageUrl = this.getPageUrl(container),
+        pageUrl = 'http://1minute.ru/',//this.getPageUrl(container),
         escapedPageUrl = escape(pageUrl);
       
       if (!this.counters[pageUrl]) this.counters[pageUrl] = {};
