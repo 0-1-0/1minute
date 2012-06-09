@@ -36,9 +36,11 @@ table class="table table-bordered"
 table class="table table-bordered"
   -@events.each do |event|
     tr
+      td Статистика по акции '#{event.name}'
       -@activities.each do |activity|
         td 
           | Собрано #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)} минут
-          | для #{event.name}
-          | с помощью #{activity.name}
+          | и #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:money)} денег
+          | для '#{event.name}''
+          | с помощью действия '#{activity.name}''
 
