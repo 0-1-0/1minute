@@ -34,9 +34,14 @@ table class="table table-bordered"
     td=Event.sum(:current_service_fee)
 
 table class="table table-bordered"
+  tr
+    th Название Акции
+    -@activities.each do |activity|
+      th Действие #{activity.name}
+
   -@events.each do |event|
     tr
-      td Статистика по акции '#{event.name}'
+      td=event.name
       -@activities.each do |activity|
         td 
           | Собрано #{Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)} минут
