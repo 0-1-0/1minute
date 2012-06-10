@@ -145,9 +145,12 @@ javascript:
   FB.Event.subscribe('edge.create',
     function(response) {
       $.get('/activities/'+fb_map[response]+'/do_it?event=' + #{@event.id}, function(data) {
+        _gaq.push(['_trackSocial', 'facebook', 'like', response]);
+
         $('.popup-slider').find('.popup-slide[activity_id='+fb_map[response]+'] .btn-do').click();
 
-        _gaq.push(['_trackSocial', 'facebook', 'like', response]);
+        
+        //alert(response);
       });
     }
   );
