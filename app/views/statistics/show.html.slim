@@ -46,3 +46,8 @@ table class="table table-bordered"
       -@activities.each do |activity|
         td=Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)
 
+  tr 
+    td Итого
+    -@activities.each do |activity|
+      td=Transaction.where(:activity_id=> activity.id, :status=>'done').sum(:minutes)
+
