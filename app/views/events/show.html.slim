@@ -89,63 +89,64 @@
     span.popup-close
     .popup-slider
       .slides_container
-        - Activity.where(:visible=>true).order(:sorting_order).each do |activity|
-          - unless activity.done?(current_user)
-            .popup-slide[activity_id="#{activity.id}" activity_type='#{activity.activity_type}']
-              .fullaction
-                .fullaction-title
-                  .fullaction-title-left.p-f-left
-                    | Простое действие:  
-                    span= activity.name
-                  .fullaction-title-right
-                    | Действие приносит 
-                    strong= activity.minutes
-                    |  #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
-                .fullaction-info
-                  .scrollable
-                    .textblock= activity.description.html_safe
-                  .fullaction-img
-                    span
-                    = image_tag activity.logo_image_url
-                    /img[src="content/groupon.jpg" alt="groupon" width="216" height="95"]
-                .fullaction-info.fullaction-info-last
-                  .fullaction-bigimg
-                    = image_tag activity.big_image_url
-                    /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
-                  - if activity.activity_type == 'link'
-                    .fullaction-do
-                      - if activity.non_blocking
-                        = link_to do_it_activity_path(activity, event: @event), class: 'btn-do-nb', target: :blank do
-                          i
-                            span
-                          |  Совершить действие 
-                      - else
-                        = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
-                          i
-                            span
-                          |  Совершить действие 
+        - Activity.find(:all, :order=>:sorting_order).each do |activity|
+          - if activity.visible or current_user.is_admin
+            - unless activity.done?(current_user)
+              .popup-slide[activity_id="#{activity.id}" activity_type='#{activity.activity_type}']
+                .fullaction
+                  .fullaction-title
+                    .fullaction-title-left.p-f-left
+                      | Простое действие:  
+                      span= activity.name
+                    .fullaction-title-right
+                      | Действие приносит 
+                      strong= activity.minutes
+                      |  #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
+                  .fullaction-info
+                    .scrollable
+                      .textblock= activity.description.html_safe
+                    .fullaction-img
+                      span
+                      = image_tag activity.logo_image_url
+                      /img[src="content/groupon.jpg" alt="groupon" width="216" height="95"]
+                  .fullaction-info.fullaction-info-last
+                    .fullaction-bigimg
+                      = image_tag activity.big_image_url
+                      /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
+                    - if activity.activity_type == 'link'
+                      .fullaction-do
+                        - if activity.non_blocking == true
+                          = link_to do_it_activity_path(activity, event: @event), class: 'btn-do-nb', target: :blank do
+                            i
+                              span
+                            |  Совершить действие 
+                        - else
+                          = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
+                            i
+                              span
+                            |  Совершить действие 
 
-                  - elsif activity.activity_type == "vkontakte like"
-                    div id="#{activity.id}_like"
-                    javascript:
-                      $(document).ready(function() {
-                        return VK.Widgets.Like("#{activity.id}_like", {type: "mini", pageUrl:"#{activity.data.html_safe}"});
-                      });
-                  - elsif activity.activity_type == "facebook like"
-                    .fullaction-do
-                      a.hidden.btn-do
-                        i
-                      .fb-like-box data-href=activity.data.html_safe data-width="222" data-height="232" data-show-faces="true" data-stream="false" data-header="false"
+                    - elsif activity.activity_type == "vkontakte like"
+                      div id="#{activity.id}_like"
                       javascript:
-                        fb_map["#{activity.data.html_safe}"] = #{activity.id};
+                        $(document).ready(function() {
+                          return VK.Widgets.Like("#{activity.id}_like", {type: "mini", pageUrl:"#{activity.data.html_safe}"});
+                        });
+                    - elsif activity.activity_type == "facebook like"
+                      .fullaction-do
+                        a.hidden.btn-do
+                          i
+                        .fb-like-box data-href=activity.data.html_safe data-width="222" data-height="232" data-show-faces="true" data-stream="false" data-header="false"
+                        javascript:
+                          fb_map["#{activity.data.html_safe}"] = #{activity.id};
 
-                  - elsif activity.activity_type == "facebook like2"
-                    .fullaction-do
-                      a.hidden.btn-do
-                        i
-                      .fb-like[data-href=activity.data.html_safe data-width="220" data-height="232" data-send="false" data-show-faces="true" ]
-                      javascript:
-                        fb_map["#{activity.data.html_safe}"] = #{activity.id};
+                    - elsif activity.activity_type == "facebook like2"
+                      .fullaction-do
+                        a.hidden.btn-do
+                          i
+                        .fb-like[data-href=activity.data.html_safe data-width="220" data-height="232" data-send="false" data-show-faces="true" ]
+                        javascript:
+                          fb_map["#{activity.data.html_safe}"] = #{activity.id};
 javascript:
   $('.popup').hide();
   $('.pelena').hide();

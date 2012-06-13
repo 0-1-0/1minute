@@ -44,6 +44,6 @@ class Activity < ActiveRecord::Base
   end
 
   def done?(user)
-    return (!non_blocking and (Transaction.where(activity_id: id, user_id: user.id).count > 0))
+    return ((non_blocking == false) and (Transaction.where(activity_id: id, user_id: user.id).count > 0))
   end
 end
