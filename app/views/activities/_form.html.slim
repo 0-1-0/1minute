@@ -15,6 +15,7 @@
   = f.input :logo_image, as: :file
   = f.input :instantly, as: :boolean
   = f.input :visible, as: :boolean
+  = f.input :non_blocking, as: :boolean
   .form-actions
     = f.button :submit, :class => 'btn'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), activities_path, :class => 'btn'

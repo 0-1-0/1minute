@@ -73,8 +73,18 @@ $(document).ready(function(){
 		reInitScroll();
 		return false;
 	})
+
+		$('.btn-do-nb').live('click', function(){
+
+
+				$('.popup').fadeOut();
+				$('.pelena').hide();
+		
+
+	})
 	
 	$('.btn-do').live('click', function(){
+
 		$curSlide = $(this).parents('.popup-slide').eq(0); 
 		doneId = $curSlide.attr('activity_id');
 
@@ -94,7 +104,6 @@ $(document).ready(function(){
 				$('.popup-slider .slides_container').html(reHtml);
 
 				initPopupSlides();
-
 
 	})
 

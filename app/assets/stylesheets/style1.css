@@ -316,6 +316,13 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 				.btn-do:hover i {background-position: 0 -118px !important; }
 				.btn-do:hover i span {opacity: 0 !important}
 				.btn-do i span{background: url(hearth.png) no-repeat center bottom;width: 118px;height: 118px; display: block }
+
+
+							.btn-do-nb {width: 150px;  text-align: center; color: #28a3f1; display: inline-block; *display: inline; zoom: 1; vertical-align: middle; margin-top: 47px}
+				.btn-do-nb i {display: block; background: url(hearth.png) no-repeat center 0; height: 118px; width: 118px; margin: auto; margin-bottom: 12px; overflow: hidden; zoom: 1}
+				.btn-do-nb:hover i {background-position: 0 -118px !important; }
+				.btn-do-nb:hover i span {opacity: 0 !important}
+				.btn-do-nb i span{background: url(hearth.png) no-repeat center bottom;width: 118px;height: 118px; display: block }
 			
 			.btn-otchet {background: url(btn-otchet.png) no-repeat 0 0;width: 178px;height: 33px; text-indent: -9999px; display: inline-block; *display: inline; zoom: 1; overflow: hidden;}	
 			.btn-otchet:hover {background-position: 0 -33px}	

@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   mount_uploader :big_image, ImageUploader
   mount_uploader :logo_image, ImageUploader
 
-  attr_accessible :visible, :sorting_order,:name, :data, :description, :image, :instantly, :minutes, :money, :activity_type, :service_fee, :big_image, :logo_image
+  attr_accessible :non_blocking, :visible, :sorting_order,:name, :data, :description, :image, :instantly, :minutes, :money, :activity_type, :service_fee, :big_image, :logo_image
 
   validates_presence_of :name, :data, :description, :minutes, :money, :activity_type
 
@@ -44,6 +44,6 @@ class Activity < ActiveRecord::Base
   end
 
   def done?(user)
-    return Transaction.where(activity_id: id, user_id: user.id).count > 0
+    return (!non_blocking and (Transaction.where(activity_id: id, user_id: user.id).count > 0))
   end
 end

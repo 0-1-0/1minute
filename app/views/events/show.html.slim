@@ -31,44 +31,45 @@
   .full-content
     .main-width
       .operations.ta-justify
-        - Activity.where(:visible=>true).order(:sorting_order).each do |activity|
-          - unless activity.done?(current_user)
-            .operation[activity_id="#{activity.id}"]
-              = link_to '#' do
+        - Activity.find(:all, :order=>:sorting_order).each do |activity|
+          - if activity.visible or current_user.is_admin
+            - unless activity.done?(current_user)
+              .operation[activity_id="#{activity.id}"]
+                = link_to '#' do
+                  span.operation-img
+                    = image_tag activity.image_url, alt: "operation-img", size: '300x200'
+                    /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
+                  span.operation-hover
+                    span.round-btn
+                    span= activity.name
+                    span
+                      em
+                        | Действие приносит #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
+                  span.operation-done
+                    span Спасибо.
+                    span
+                      big Действие совершено
+                    span
+                      = image_tag "good-minutes.png", alt: "good-minutes", size: "28x25"
+                    span
+                      em Вы подарили #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
+                  i
+            - else
+              .operation.operation-done[activity_id="#{activity.id}"]
                 span.operation-img
                   = image_tag activity.image_url, alt: "operation-img", size: '300x200'
-                  /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
-                span.operation-hover
-                  span.round-btn
-                  span= activity.name
-                  span
-                    em
-                      | Действие приносит #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
                 span.operation-done
-                  span Спасибо.
                   span
-                    big Действие совершено
+                    | Спасибо.
                   span
-                    = image_tag "good-minutes.png", alt: "good-minutes", size: "28x25"
+                    big
+                      | Действие совершено
+                  span
+                    = image_tag 'good-minutes.png', size: '25x28'
+                    /img[src="images/good-minutes.png" alt="good-minutes" width="25" height="28"]
                   span
                     em Вы подарили #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
                 i
-          - else
-            .operation.operation-done[activity_id="#{activity.id}"]
-              span.operation-img
-                = image_tag activity.image_url, alt: "operation-img", size: '300x200'
-              span.operation-done
-                span
-                  | Спасибо.
-                span
-                  big
-                    | Действие совершено
-                span
-                  = image_tag 'good-minutes.png', size: '25x28'
-                  /img[src="images/good-minutes.png" alt="good-minutes" width="25" height="28"]
-                span
-                  em Вы подарили #{activity.minutes} #{Russian.p(activity.minutes, "добрую минуту", "добрые минуты", "добрых минут")}
-              i
         /.operation
           /span.operation-img
             /img[src="images/content/operation-img.jpg" alt="operation-img" width="300" height="200"]
@@ -90,7 +91,7 @@
       .slides_container
         - Activity.where(:visible=>true).order(:sorting_order).each do |activity|
           - unless activity.done?(current_user)
-            .popup-slide[activity_id="#{activity.id}"]
+            .popup-slide[activity_id="#{activity.id}" activity_type='#{activity.activity_type}']
               .fullaction
                 .fullaction-title
                   .fullaction-title-left.p-f-left
@@ -113,10 +114,17 @@
                     /img[src="content/bigimg.jpg" alt="bigimg" width="500" height="300"]
                   - if activity.activity_type == 'link'
                     .fullaction-do
-                      = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
-                        i
-                          span
-                        |  Совершить действие 
+                      - if activity.non_blocking
+                        = link_to do_it_activity_path(activity, event: @event), class: 'btn-do-nb', target: :blank do
+                          i
+                            span
+                          |  Совершить действие 
+                      - else
+                        = link_to do_it_activity_path(activity, event: @event), class: 'btn-do', target: :blank do
+                          i
+                            span
+                          |  Совершить действие 
+
                   - elsif activity.activity_type == "vkontakte like"
                     div id="#{activity.id}_like"
                     javascript:
