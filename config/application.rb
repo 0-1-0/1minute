@@ -63,6 +63,7 @@ module Oneminute
     config.assets.version = '1.0'
 
     config.cache_store = :dalli_store
+    config.assets.initialize_on_precompile = false
 
     # убираем генерацию всякого хлама
     config.generators do |g|
