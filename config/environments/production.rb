@@ -20,6 +20,10 @@ Oneminute::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=2592000"
+  config.action_controller.perform_caching = true
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

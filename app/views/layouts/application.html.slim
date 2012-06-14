@@ -13,26 +13,14 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
     link[rel="stylesheet" type="text/css" href="http://stg.odnoklassniki.ru/share/odkl_share.css"]
 
     = javascript_include_tag "application"
-    = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = javascript_include_tag "http://widgets.twimg.com/j/2/widget.js"
     = javascript_include_tag "http://vkontakte.ru/js/api/share.js?11"
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
-    = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
-    = javascript_include_tag "http://apis.google.com/js/plusone.js"
-    = javascript_include_tag "social-likes.js"
+    = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
 
     javascript:
-      FB.init({
-        appId  : "#{ENV['FB_APP_ID']}",
-        status : true, // check login status
-        cookie : true, // enable cookies to allow the server to access the session
-        xfbml  : true  // parse XFBML
-      });
-      VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
-      window.fb_map = {}
-
-       var _gaq = _gaq || [];
+      var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-29887249-2']);
       _gaq.push(['_trackPageview']);
 
@@ -55,6 +43,16 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
       });
+
+      FB.init({
+        appId  : "#{ENV['FB_APP_ID']}",
+        status : true, // check login status
+        cookie : true, // enable cookies to allow the server to access the session
+        xfbml  : true  // parse XFBML
+      });
+
+      VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
+      window.fb_map = {}
 
     .background
       .main-div
@@ -195,7 +193,11 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
             span.contacts-item.phone +7 (495) 789 35 76
     /! <script type="text/javascript" src="js/pm.js"></script>
 
+    = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
+    = javascript_include_tag "http://apis.google.com/js/plusone.js"
+
     javascript:
+
       function hideAddressBar()
       {
         if(!window.location.hash)

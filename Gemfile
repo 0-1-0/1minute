@@ -38,6 +38,9 @@ gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'fog'
 
+#кэширование
+gem 'dalli'
+
 
 #статические страницы
 gem "high_voltage"
