@@ -1,13 +1,27 @@
 doctype Strict
-html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"]
+html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"]
   head
-    title 1minute
+    title 1 Minute - Твоя минута на добро. Удели минуту своего времени и помоги доброму делу.
+    /Google analytics
     meta[name="google-site-verification" content="Gn9xDn4F6op-OadD1Lyo2KSA1YfNtFzz0u4ZGaqEEz8"]
+
     meta[content="text/html;charset=UTF-8" http-equiv="Content-Type"]
     meta[content="IE=EmulateIE8" http-equiv="X-UA-Compatible"]
-    meta[content="width=1020" name="viewport"]   
+
+    /Нужно для iPad
     meta[name="apple-mobile-web-app-capable" content="yes"]
-    meta[name="description" content="1minute.ru - совершать добрые дела просто.Достаточно только минуты твоего времени"]
+    meta[content="width=1020" name="viewport"]   
+
+    /Вконтакте
+    meta[name="title" content="1minute.ru - самый простой способ помочь"]    
+    meta[name="description" content="За минуту в контакте ты можешь: прослушать полпесни, просмотреть альбом подруги, придумать забавный комментарий, но не успеть написать его или с помощью сайта 1minute.ru помочь детям."]
+    link[rel="image_src" href="http://1minute.ru/assets/content/3-4467943294f4def01229082d1bd44d96.png"]
+
+    /Facebook
+    meta[property="og:title" content="1minute.ru - совершать добрые дела просто. Достаточно только минуты твоего времени"]
+    meta[property="og:description" content="За минуту в контакте ты можешь: прослушать полпесни, просмотреть альбом подруги, придумать забавный комментарий, но не успеть написать его или с помощью сайта 1minute.ru помочь детям."]
+    meta[property="og:image" content="http://1minute.ru/assets/content/3-4467943294f4def01229082d1bd44d96.png"]
+
     = stylesheet_link_tag "application", media: 'all'
     link[rel="stylesheet" type="text/css" href="http://stg.odnoklassniki.ru/share/odkl_share.css"]
 
