@@ -1,3 +1,6 @@
+- content_for :stylesheets do
+  = stylesheet_link_tag 'bootstrap.min'
+
 - model_class = @activity.class
 h1=t '.title', :default => model_class.model_name.human
 

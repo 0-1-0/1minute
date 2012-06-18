@@ -37,6 +37,21 @@ html,body {background: #d5d5d5; font-family: "PT Sans", sans-serif; font-size: 1
 		a:hover{text-decoration: none}
 
 
+#admin-sidebar{
+	position: fixed;
+	top: 100px; /* Положение от нижнего края */
+  right: 15px; /* Положение от правого края */
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+}
+
+#admin-sidebar ul li{
+	margin-top:20px;
+	color: red;
+	font-size: 20px;
+}
+
+
 .background {background: #d5d5d5; min-height: 100%;}
 .background.inside-page {background: #fff}
 	.main-div {padding-bottom: 204px;}

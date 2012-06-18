@@ -1,53 +1,51 @@
-javascript:
-  var link = document.createElement('link');
+/Подключаем Twiter Bootstrap
+- content_for :stylesheets do
+  = stylesheet_link_tag 'bootstrap.min'
 
-  link.setAttribute('rel', 'stylesheet');
+.row
+  .span12.offset2
+    table.table.table-bordered
+      tr
+        th Название Акции
+        th Денег собрано
+        th Минут собрано
+        th Собрано сдредств для 1minute
+      - @events.each do |event|
+        tr
+          td=event.name
+          td=event.current_money
+          td=event.current_min
+          td=event.current_service_fee
 
-  link.type = 'text/css';
+.row
+  .span12.offset2
+    table.table.table-bordered
+      tr
+        th Всего денег собрано:
+        th Всего минут собрано:
+        th Всего сорано денег для 1minute:
+      tr
+        td=Event.sum(:current_money)
+        td=User.sum(:minutes) + 200000
+        td=Event.sum(:current_service_fee)
 
-  link.href = '/assets/bootstrap.min.css';
+.row
+  .span12.offset2
+    h1 Отчет в минутах:
+    table class="table table-bordered"
+      tr
+        th Название Акции
+        -@activities.each do |activity|
+          th Действие #{activity.name}
 
-  document.head.appendChild(link);
+      -@events.each do |event|
+        tr
+          td=event.name
+          -@activities.each do |activity|
+            td=Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)
 
-
-table class="table table-bordered"
-  tr
-    th Название Акции
-    th Денег собрано
-    th Минут собрано
-    th Собрано сдредств для 1minute
-  - @events.each do |event|
-    tr
-      td=event.name
-      td=event.current_money
-      td=event.current_min
-      td=event.current_service_fee
-
-table class="table table-bordered"
-  tr
-    th Всего денег собрано:
-    th Всего минут собрано:
-    th Всего сорано денег для 1minute:
-  tr
-    td=Event.sum(:current_money)
-    td=User.sum(:minutes) + 200000
-    td=Event.sum(:current_service_fee)
-
-h1 Отчет в минутах:
-table class="table table-bordered"
-  tr
-    th Название Акции
-    -@activities.each do |activity|
-      th Действие #{activity.name}
-
-  -@events.each do |event|
-    tr
-      td=event.name
-      -@activities.each do |activity|
-        td=Transaction.where(:event_id=>event.id, :activity_id=> activity.id, :status=>'done').sum(:minutes)
-
-  tr 
-    td Итого
-    -@activities.each do |activity|
-      td=Transaction.where(:activity_id=> activity.id, :status=>'done').sum(:minutes)
+      tr 
+        td Итого
+        -@activities.each do |activity|
+          td=Transaction.where(:activity_id=> activity.id, :status=>'done').sum(:minutes)
 

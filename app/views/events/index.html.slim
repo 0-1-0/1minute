@@ -71,10 +71,3 @@
                 - else
                   a.btn.btn-otchet[href="#{event.report_link}"]
                   
-        - if current_user.is_admin?
-          br
-          = link_to 'Создать новую акцию', new_event_path, :class => 'btn'
-          br
-          = link_to 'Создать новое действие', new_activity_path
-          br
-          = link_to 'К действиям', activities_path

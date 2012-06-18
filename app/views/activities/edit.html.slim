@@ -1,3 +1,7 @@
+/Подключаем Twiter Bootstrap
+- content_for :stylesheets do
+  = stylesheet_link_tag 'bootstrap.min'
+
 - model_class = @activity.class
 h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
 = render :partial => "form"

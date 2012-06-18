@@ -8,9 +8,8 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
     meta[content="text/html;charset=UTF-8" http-equiv="Content-Type"]
     meta[content="IE=EmulateIE8" http-equiv="X-UA-Compatible"]
 
-    /Нужно для iPad
-    meta[name="apple-mobile-web-app-capable" content="yes"]
-    meta[content="width=1020" name="viewport"]   
+    /Нужно для  atmitad
+    meta[name="verify-admitad" content="533dde14f9"]
 
     /Вконтакте
     meta[name="title" content="1minute.ru - самый простой способ помочь"]    
@@ -32,6 +31,9 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
     = javascript_include_tag "http://vkontakte.ru/js/api/share.js?11"
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
+
+    /Магия. Подключаем page-specific CSS
+    = yield :stylesheets
 
     javascript:
       var _gaq = _gaq || [];
@@ -68,6 +70,17 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
       VK.init({apiId: #{ENV['VK_APP_ID']}, onlyWidgets: true});
       window.fb_map = {}
 
+    - if user_signed_in?
+      - if current_user.is_admin?
+        #admin-sidebar
+          h1 Админка
+          ul
+            li= link_to 'Статистика', :controller => :statistics, :action => :show
+            li= link_to 'Сбросить все действия', :controller => :transactions, :action => :reset_all
+            li= link_to 'Создать акцию', new_event_path
+            li= link_to 'Создать действие', new_activity_path
+            li= link_to 'Листинг действий', activities_path
+
     .background
       .main-div
         .header
@@ -84,19 +97,12 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
                 li
                   = link_to "Партнеры", page_path("partners")
 
-
-            - if user_signed_in?
-              - if current_user.is_admin?
-                span
-                  = link_to 'Статистика', :controller => :statistics, :action => :show
-                  = link_to 'Сбросить все действия', :controller => :transactions, :action => :reset_all
-              .user-block-border
-                .user-block
-                  span.user-name=current_user.nickname || current_user.email
-                  span.user-progress
-                    i[style="width:#{current_user.minutes%100}%"]
-                  = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
-
+            .user-block-border
+              .user-block
+                span.user-name=current_user.nickname || current_user.email
+                span.user-progress
+                  i[style="width:#{current_user.minutes%100}%"]
+                = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
 
 
         - if @current_controller != 'pages'
