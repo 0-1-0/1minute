@@ -1,4 +1,6 @@
 Oneminute::Application.routes.draw do
+  get "admitad/verify"
+
   get "passwords/update"
 
   get "passwords_controller/update"
@@ -80,4 +82,6 @@ Oneminute::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match "/presentation" => redirect("/assets/presentation.pdf")
+
+  match '/admitad.txt', :to => 'admitad#verify'
 end
