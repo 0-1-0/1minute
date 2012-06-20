@@ -13,11 +13,11 @@ $(document).ready(function(){
 	}
 
 	$('.promo-slider').slides({
-		preload: false,
+		preload: true,
 		play: 5000,
 		pause: 2500,
-		hoverPause: true,
 		generateNextPrev: 1,
+		hoverPause: true,
 		effect : 'slide'
 	});
 	
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	})
 	
 	
-	$('.operation a').live('click', function(){
+	$('.operation a').click(function(){
 		//go to clicked operation in popup
 		activity_id = $(this).parent().attr('activity_id');
 

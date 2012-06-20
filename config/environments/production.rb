@@ -6,7 +6,7 @@ Oneminute::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -15,7 +15,7 @@ Oneminute::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.compile = false
   config.assets.precompile += %w( bootstrap.min.css )
 
   # Generate digests for assets URLs
@@ -23,7 +23,6 @@ Oneminute::Application.configure do
 
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=2592000"
-  config.action_controller.perform_caching = true
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
