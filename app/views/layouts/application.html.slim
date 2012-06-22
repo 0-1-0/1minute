@@ -31,6 +31,8 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
     = javascript_include_tag "http://vkontakte.ru/js/api/share.js?11"
     = javascript_include_tag "http://platform.twitter.com/widgets.js"
     = javascript_include_tag "http://userapi.com/js/api/openapi.js?49"
+    = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
+    = javascript_include_tag "http://apis.google.com/js/plusone.js"
 
     /Магия. Подключаем page-specific CSS
     = yield :stylesheets
@@ -214,24 +216,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
             span.contacts-item.phone +7 (495) 789 35 76
     /! <script type="text/javascript" src="js/pm.js"></script>
 
-    = javascript_include_tag "http://stg.odnoklassniki.ru/share/odkl_share.js"
-    = javascript_include_tag "http://apis.google.com/js/plusone.js"
-
     javascript:
-
-      function hideAddressBar()
-      {
-        if(!window.location.hash)
-        {
-            if(document.height < window.outerHeight)
-            {
-                document.body.style.height = (window.outerHeight + 50) + 'px';
-            }
-
-            setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
-        }
-      }
-
       (function (d, w, c) {
           (w[c] = w[c] || []).push(function() {
               try {
@@ -250,8 +235,3 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
               d.addEventListener("DOMContentLoaded", f);
           } else { f(); }
       })(document, window, "yandex_metrika_callbacks");
-
-
-
-      window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
-      window.addEventListener("orientationchange", hideAddressBar );
