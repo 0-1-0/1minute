@@ -34,7 +34,7 @@ $(document).ready(function(){
 			}
 		});		
 	}
-	//initPopupSlides();
+	initPopupSlides();
 			
 	$('.login-block input.i-ch').ezMark(); 
 	
