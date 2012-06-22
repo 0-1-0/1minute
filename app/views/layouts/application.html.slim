@@ -102,7 +102,7 @@ html[xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/
             - if user_signed_in?
               .user-block-border
                 .user-block
-                  span.user-name=current_user.nickname || current_user.email
+                  span.user-name=(current_user.username || (current_user.nickname || current_user.email))
                   span.user-progress
                     i[style="width:#{current_user.minutes%100}%"]
                   = link_to 'Выйти', destroy_user_session_path, class: 'btn-logout'
