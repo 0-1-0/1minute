@@ -34,7 +34,7 @@ $(document).ready(function(){
 			}
 		});		
 	}
-	initPopupSlides();
+	//initPopupSlides();
 			
 	$('.login-block input.i-ch').ezMark(); 
 	
@@ -128,8 +128,6 @@ $(document).ready(function(){
 				initPopupSlides();
 
 	})
-
-	$('.popup').hide();
 	
 	reInitScroll();
 	
@@ -144,7 +142,4 @@ $(document).ready(function(){
 
 	$('.gallery a').fancybox();
 	
- 	//.css({'visibility':'visible'})
-	
-/* 	$('.good-block .counter').append('<span/>') */
 })
