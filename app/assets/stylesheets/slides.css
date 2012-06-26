@@ -115,7 +115,8 @@ popup-controls.png) no-repeat -71px 0; position: absolute; right: -36px; top: 96
 .popup-slider .slides_container {
 	width:732px;
 	height: 550px;
-	overflow:hidden;
+	overflow:visible !important;
 	position:relative;
 	display:block;
 }
+.popup-slider {overflow: hidden}
